@@ -3,7 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Motores de Autos Seleccionados</title>
+  <title>Motores de Autos Seleccionados | Compra y Reventa</title>
+
+  <!-- SEO Básico -->
+  <meta name="description" content="Motores de autos seleccionados para venta en Buenos Aires. Disponibilidad verificada para talleres, mecánicos y particulares. Compra y reventa confiable.">
+  <meta name="keywords" content="motores de autos, motores usados, venta de motores, motores Buenos Aires, compra y reventa de motores">
+  <meta name="author" content="Motores de Autos Seleccionados">
+  <meta name="robots" content="index, follow">
+
   <style>
     body {
       margin: 0;
@@ -78,30 +85,40 @@
     .card:hover {
       transform: translateY(-8px);
     }
-    .motor-card {
-      background: #141414;
-      padding: 40px;
-      border-radius: 12px;
-      max-width: 800px;
-      margin: 40px auto;
-    }
-    .motor-card img {
-      width: 100%;
-      max-width: 500px;
-      border-radius: 8px;
-      margin: 20px 0;
-    }
-    .precio {
-      font-size: 28px;
-      color: #e10600;
-      margin: 20px 0;
-      font-weight: bold;
-    }
     footer {
       background: #000;
       text-align: center;
       padding: 25px;
       color: #888;
+    }
+    /* Sección motor disponible */
+    .motor-card {
+      background: #1a1a1a;
+      padding: 25px;
+      margin: 20px auto;
+      max-width: 500px;
+      border-radius: 10px;
+      text-align: left;
+    }
+    .motor-card img {
+      width: 100%;
+      border-radius: 6px;
+      margin: 15px 0;
+    }
+    .motor-card h3 {
+      margin-top: 0;
+      font-size: 22px;
+      color: #e10600;
+    }
+    .motor-card p.precio {
+      font-weight: bold;
+      color: #00c6ff;
+      font-size: 18px;
+    }
+    .motor-card button {
+      display: block;
+      width: 100%;
+      margin-top: 15px;
     }
   </style>
 </head>
@@ -112,6 +129,7 @@
   <div>
     <a href="#">Inicio</a>
     <a href="#quienes-somos">Quiénes Somos</a>
+    <a href="#motores">Motores</a>
     <a href="#contacto">Contacto</a>
   </div>
 </nav>
@@ -127,49 +145,21 @@
   <p>En Motores Seleccionados, nos dedicamos a la compra y reventa de motores de autos. Con base en Buenos Aires, ofrecemos un servicio confiable, rápido y personalizado, orientado a talleres, mecánicos y particulares que buscan motores certificados y listos para usar.</p>
 </section>
 
-<section>
-  <h2>¿Por qué elegirnos?</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Selección Técnica</h3>
-      <p>Motores verificados y listos para instalación inmediata.</p>
-    </div>
-    <div class="card">
-      <h3>Disponibilidad Real</h3>
-      <p>Stock actualizado según demanda del mercado.</p>
-    </div>
-    <div class="card">
-      <h3>Atención Personalizada</h3>
-      <p>Asesoramiento según tu proyecto o necesidad.</p>
-    </div>
-  </div>
-</section>
+<section id="motores">
+  <h2>Motores Disponibles</h2>
 
-<!-- NUEVA SECCIÓN MOTOR EN VENTA -->
-
-<section>
-  <h2>Motor Disponible</h2>
+  <!-- TEMPLATE MOTOR -->
   <div class="motor-card">
     <h3>Motor VW 1.6 8V (2016)</h3>
-    <p>Compatible con: Saveiro, Gol Trend, Voyage, Fox, Suran y Golf.</p>
-    
-    <img src="IMG_20260226_083736.jpg"precio">$4.000.000 ARS</p>
-
-    <p>
-      Motor verificado y listo para instalación. Ideal para reemplazo o proyecto.
-      Disponibilidad inmediata.
-    </p>
-
-    <p>
-      <strong>Condiciones de compra:</strong><br>
-      La operación se realiza con el 100% del pago previo.
-      Una vez acreditado el importe, se coordina el envío o retiro.
-    </p>
-
-    <button onclick="window.location.href='#contacto'">
-      Consultar este motor
-    </button>
+    <p>Compatible con: Gol, Saveiro, Fox, Suran</p>
+    <img src="https://raw.githubusercontent.com/nicolasricardobiq-boop/miweb/main/IMG_20260226_083736.jpg" alt="Motor VW 1.6 8V 2016">
+    <p class="precio">$4.200.000 ARS</p>
+    <p>Motor verificado y listo para instalación. Ideal para reemplazo o proyecto. Disponibilidad inmediata.</p>
+    <p><strong>Condiciones de compra:</strong> La operación se realiza con el 100% del pago previo. Una vez acreditado, se coordina envío o retiro.</p>
+    <button onclick="window.location.href='#contacto'">Consultar este motor</button>
   </div>
+  <!-- FIN TEMPLATE -->
+
 </section>
 
 <section id="contacto">
@@ -185,6 +175,4 @@
 </footer>
 
 </body>
-  </html>
-
-
+</html>
