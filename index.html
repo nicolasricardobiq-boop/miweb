@@ -1,82 +1,142 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Motores de Autos Seleccionados</title>
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #111;
-    color: white;
-    text-align: center;
-}
-
-header {
-    background: url('https://images.unsplash.com/photo-1515923162031-c6a23a4f2b87?auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;
-    padding: 100px 20px;
-}
-
-header h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
-}
-
-header p {
-    font-size: 20px;
-    max-width: 700px;
-    margin: 0 auto 30px;
-}
-
-button {
-    background-color: #e10600;
-    border: none;
-    padding: 15px 30px;
-    font-size: 18px;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-button:hover {
-    background-color: #ff1a1a;
-}
-
-section {
-    padding: 60px 20px;
-}
-
-footer {
-    background-color: #000;
-    padding: 20px;
-    font-size: 14px;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motores de Autos Seleccionados</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0d0d0d;
+      color: white;
+    }
+    nav {
+      background: #000;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav h2 {
+      margin: 0;
+      font-weight: 600;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+    header {
+      background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), 
+      url('https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=1400&q=80') center/cover;
+      padding: 120px 20px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 56px;
+      margin-bottom: 20px;
+    }
+    header p {
+      font-size: 22px;
+      max-width: 800px;
+      margin: auto;
+      margin-bottom: 40px;
+      color: #ccc;
+    }
+    button {
+      background: #e10600;
+      border: none;
+      padding: 18px 40px;
+      font-size: 18px;
+      color: white;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #ff1a1a;
+    }
+    section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+    .cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .card {
+      background: #1a1a1a;
+      padding: 30px;
+      width: 280px;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+    }
+    footer {
+      background: #000;
+      text-align: center;
+      padding: 25px;
+      color: #888;
+    }
+  </style>
 </head>
-
 <body>
 
+<nav>
+  <h2>Motores Seleccionados</h2>
+  <div>
+    <a href="#">Inicio</a>
+    <a href="#quienes-somos">Quiénes Somos</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+</nav>
+
 <header>
-    <h1>Motores de Autos Seleccionados</h1>
-    <p>Disponibilidad verificada para reparación, reemplazo y proyectos especiales. Motores listos para transferir y colocar.</p>
-    <button onclick="window.location.href='#contacto'">Consultar Disponibilidad</button>
+  <h1>Motores de Autos Seleccionados</h1>
+  <p>Disponibilidad verificada para reparación, reemplazo y proyectos especiales. Motores listos para transferir y colocar.</p>
+  <button onclick="window.location.href='#contacto'">Consultar Disponibilidad</button>
 </header>
 
+<section id="quienes-somos">
+  <h2>Quiénes Somos</h2>
+  <p>En Motores Seleccionados, nos dedicamos a la compra y reventa de motores de autos. Con base en Buenos Aires, ofrecemos un servicio confiable, rápido y personalizado, orientado a talleres, mecánicos y particulares que buscan motores certificados y listos para usar.</p>
+</section>
+
 <section>
-    <h2>¿Qué ofrecemos?</h2>
-    <p>Motores completos listos para instalar, ideales para reemplazo o proyectos automotrices.</p>
+  <h2>¿Por qué elegirnos?</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Selección Técnica</h3>
+      <p>Motores verificados y listos para instalación inmediata.</p>
+    </div>
+    <div class="card">
+      <h3>Disponibilidad Real</h3>
+      <p>Stock actualizado según demanda del mercado.</p>
+    </div>
+    <div class="card">
+      <h3>Atención Personalizada</h3>
+      <p>Asesoramiento según tu proyecto o necesidad.</p>
+    </div>
+  </div>
 </section>
 
 <section id="contacto">
-    <h2>Contacto</h2>
-    <p>Consultanos disponibilidad y modelos actuales.</p>
-    <p>Email: contacto@tusitio.com</p>
+  <h2>Contacto</h2>
+  <p>Consultanos disponibilidad y modelos actuales.</p>
+  <p>Email: motoresseleccionadosarg@gmail.com</p>
+  <p>Ubicación: Buenos Aires</p>
+  <p>WhatsApp: <a href="https://wa.me/541130461461" style="color: #25D366;">+54 11 3046 1461</a></p>
 </section>
 
 <footer>
-    © 2026 Motores de Autos Seleccionados - Todos los derechos reservados
+  © 2026 Motores de Autos Seleccionados - Todos los derechos reservados
 </footer>
 
 </body>
-</html>
+        </html>
