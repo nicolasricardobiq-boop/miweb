@@ -3,73 +3,54 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MiWeb | Motores de Autos</title>
-
+<title>Motores de Autos Seleccionados</title>
 <style>
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #111;
+    background-color: #111;
     color: white;
+    text-align: center;
 }
 
 header {
-    background: #000;
-    padding: 20px;
-    text-align: center;
-    font-size: 22px;
-    font-weight: bold;
-    border-bottom: 1px solid #333;
+    background: url('https://images.unsplash.com/photo-1515923162031-c6a23a4f2b87?auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;
+    padding: 100px 20px;
 }
 
-.hero {
-    padding: 80px 20px;
-    text-align: center;
-    background: linear-gradient(135deg, #000000, #1c1c1c, #2a2a2a);
+header h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
 }
 
-.hero h1 {
-    font-size: 38px;
+header p {
+    font-size: 20px;
+    max-width: 700px;
+    margin: 0 auto 30px;
 }
 
-.hero p {
-    font-size: 18px;
-    opacity: 0.9;
-    max-width: 600px;
-    margin: auto;
-}
-
-.button {
-    display: inline-block;
-    margin-top: 25px;
+button {
+    background-color: #e10600;
+    border: none;
     padding: 15px 30px;
-    background: #25D366;
+    font-size: 18px;
     color: white;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
-.section {
+button:hover {
+    background-color: #ff1a1a;
+}
+
+section {
     padding: 60px 20px;
-    text-align: center;
 }
 
-.card {
-    background: #1a1a1a;
-    padding: 25px;
-    margin: 15px auto;
-    border-radius: 10px;
-    max-width: 500px;
-    border: 1px solid #333;
-}
-
-.footer {
-    background: #000;
+footer {
+    background-color: #000;
     padding: 20px;
-    text-align: center;
     font-size: 14px;
-    opacity: 0.6;
 }
 </style>
 </head>
@@ -77,54 +58,25 @@ header {
 <body>
 
 <header>
-MiWeb | Motores de Autos
+    <h1>Motores de Autos Seleccionados</h1>
+    <p>Disponibilidad verificada para reparación, reemplazo y proyectos especiales. Motores listos para transferir y colocar.</p>
+    <button onclick="window.location.href='#contacto'">Consultar Disponibilidad</button>
 </header>
 
-<section class="hero">
-    <h1>Venta de Motores con Documentación</h1>
-    <p>Motores listos para colocar, con formulario 04 y documentación correspondiente. También opciones para competición y proyectos especiales.</p>
-    <a class="button" href="https://wa.me/541130461461" target="_blank">
-        Consultar Disponibilidad
-    </a>
+<section>
+    <h2>¿Qué ofrecemos?</h2>
+    <p>Motores completos listos para instalar, ideales para reemplazo o proyectos automotrices.</p>
 </section>
 
-<section class="section">
-    <h2>Tipos de Motores</h2>
-    <div class="card">
-        Motores con 04 listos para alta.
-    </div>
-    <div class="card">
-        Motores con documentación completa.
-    </div>
-    <div class="card">
-        Motores para competición y proyectos.
-    </div>
+<section id="contacto">
+    <h2>Contacto</h2>
+    <p>Consultanos disponibilidad y modelos actuales.</p>
+    <p>Email: contacto@tusitio.com</p>
 </section>
 
-<section class="section">
-    <h2>¿Cómo Comprar?</h2>
-    <div class="card">
-        Enviá el modelo y año del vehículo.
-    </div>
-    <div class="card">
-        Te confirmamos disponibilidad.
-    </div>
-    <div class="card">
-        Coordinamos entrega y documentación.
-    </div>
-</section>
-
-<section class="section">
-    <h2>¿Tenés un Motor para Vender?</h2>
-    <p>Contactanos y evaluamos tu motor con papeles para ofrecerlo a nuestra red de clientes.</p>
-    <a class="button" href="https://wa.me/541130461461" target="_blank">
-        Vender Motor
-    </a>
-</section>
-
-<div class="footer">
-© 2026 MiWeb - Motores de Autos
-</div>
+<footer>
+    © 2026 Motores de Autos Seleccionados - Todos los derechos reservados
+</footer>
 
 </body>
 </html>
