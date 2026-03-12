@@ -74,17 +74,6 @@ header p{
   box-shadow: 0 8px 20px rgba(0,255,136,0.4);
 }
 
-.card img{
-  width:100%;
-  border-radius:8px;
-  transition: transform 0.3s;
-  cursor:pointer;
-}
-
-.card img:hover{
-  transform: scale(1.05);
-}
-
 .card h3{
   margin:10px 0 5px 0;
 }
@@ -116,53 +105,72 @@ footer{
   color:#888;
 }
 
-/* Galería de luces LED responsive */
-.thumbs-container {
-  display: flex;
+/* Galería horizontal de fotos de luces LED */
+.led-gallery {
+  display:flex;
+  overflow-x:auto;
   gap:5px;
-  overflow-x: auto;
-  justify-content: center;
-  padding-bottom:5px;
-  -webkit-overflow-scrolling: touch; /* scroll suave en iOS */
+  padding:5px 0;
+  -webkit-overflow-scrolling: touch;
 }
 
-.thumbs-container::-webkit-scrollbar {
+.led-gallery::-webkit-scrollbar {
   height:6px;
 }
 
-.thumbs-container::-webkit-scrollbar-thumb {
+.led-gallery::-webkit-scrollbar-thumb {
   background: #25D366;
   border-radius:3px;
 }
 
-.thumb {
-  flex: 0 0 auto;
-  width: 45px;
-  border-radius:5px;
+.led-gallery img {
+  flex:0 0 auto;
+  width:100px;
+  border-radius:8px;
   cursor:pointer;
   transition: transform 0.2s;
 }
 
-.thumb:hover {
+.led-gallery img:hover {
   transform: scale(1.1);
 }
 
-/* Imagen principal ajustable para celulares */
-#led-main {
-  width: 100%;
-  max-height: 200px;
-  object-fit: contain;
-  margin-bottom: 10px;
+@media (max-width:500px){
+  .card{
+    width:90%;
+  }
+  .led-gallery img{
+    width:80px;
+  }
 }
 
-@media (max-width: 500px) {
-  .card {
-    width: 90%;
-    padding:15px;
-  }
-  #led-main {
-    max-height:180px;
-  }
+/* Modal para ver imagen grande */
+#modal {
+  display:none;
+  position:fixed;
+  z-index:1000;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.9);
+  justify-content:center;
+  align-items:center;
+}
+
+#modal img {
+  max-width:90%;
+  max-height:90%;
+  border-radius:10px;
+}
+
+#modal span {
+  position:absolute;
+  top:20px;
+  right:30px;
+  font-size:40px;
+  cursor:pointer;
+  color:white;
 }
 </style>
 </head>
@@ -187,19 +195,17 @@ footer{
 <h2>Nuestros Productos</h2>
 <div class="grid">
 
-<!-- Producto 1: Luces LED con 5 fotos -->
+<!-- Producto 1: Luces LED con galería scroll y modal -->
 <div class="card">
-<img id="led-main" src="IMG_20260312_180252.jpg" alt="Luces LED Interior Auto">
 <h3>Luces LED Interior Auto</h3>
 <p class="precio">$20.000</p>
 
-<!-- Miniaturas con scroll horizontal -->
-<div class="thumbs-container">
-  <img class="thumb" src="IMG_20260312_180252.jpg">
-  <img class="thumb" src="IMG_20260312_180210.jpg">
-  <img class="thumb" src="IMG_20260312_180309.jpg">
-  <img class="thumb" src="IMG_20260312_180227.jpg">
-  <img class="thumb" src="IMG_20260312_180157.jpg">
+<div class="led-gallery">
+  <img src="IMG_20260312_180252.jpg" alt="Luces LED 1">
+  <img src="IMG_20260312_180210.jpg" alt="Luces LED 2">
+  <img src="IMG_20260312_180309.jpg" alt="Luces LED 3">
+  <img src="IMG_20260312_180227.jpg" alt="Luces LED 4">
+  <img src="IMG_20260312_180157.jpg" alt="Luces LED 5">
 </div>
 
 <a href="https://wa.me/541130461461?text=Hola%20quiero%20comprar%20las%20luces%20LED%20para%20auto">
@@ -250,17 +256,33 @@ footer{
 © 2026 Accesorios para Autos
 </footer>
 
-<script>
-// Cambiar imagen principal de las luces LED al hacer click en miniaturas
-const mainImg = document.getElementById('led-main');
-const thumbs = document.querySelectorAll('.thumb');
+<!-- Modal para ver fotos grandes -->
+<div id="modal">
+  <span id="cerrar">&times;</span>
+  <img id="modal-img" src="">
+</div>
 
-thumbs.forEach(thumb => {
-  thumb.addEventListener('click', () => {
-    mainImg.src = thumb.src;
+<script>
+// Modal de imagen grande
+const modal = document.getElementById('modal');
+const modalImg = document.getElementById('modal-img');
+const cerrar = document.getElementById('cerrar');
+
+document.querySelectorAll('.led-gallery img').forEach(img => {
+  img.addEventListener('click', () => {
+    modal.style.display = 'flex';
+    modalImg.src = img.src;
   });
+});
+
+cerrar.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
+modal.addEventListener('click', (e) => {
+  if(e.target === modal) modal.style.display = 'none';
 });
 </script>
 
 </body>
-</html>
+  </html>
