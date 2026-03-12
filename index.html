@@ -116,7 +116,7 @@ footer{
   color:#888;
 }
 
-/* Nuevo estilo para las miniaturas de luces LED */
+/* Miniaturas de luces LED con scroll horizontal */
 .thumbs-container {
   display: flex;
   gap:5px;
@@ -168,7 +168,8 @@ footer{
 
 <!-- Miniaturas con scroll horizontal -->
 <div class="thumbs-container">
-  <img class="thumb" src="IMG_20260312_180252.jpg">
+  <!-- La primera miniatura es la principal original -->
+  <img class="thumb" src="IMG_20260312_180252.jpg" data-original="true">
   <img class="thumb" src="IMG_20260312_180210.jpg">
   <img class="thumb" src="IMG_20260312_180309.jpg">
   <img class="thumb" src="IMG_20260312_180227.jpg">
@@ -227,6 +228,7 @@ footer{
 // Cambiar imagen principal de las luces LED al hacer click en miniaturas
 const mainImg = document.getElementById('led-main');
 const thumbs = document.querySelectorAll('.thumb');
+
 thumbs.forEach(thumb => {
   thumb.addEventListener('click', () => {
     mainImg.src = thumb.src;
