@@ -116,26 +116,53 @@ footer{
   color:#888;
 }
 
-/* Miniaturas de luces LED con scroll horizontal */
+/* Galería de luces LED responsive */
 .thumbs-container {
   display: flex;
   gap:5px;
   overflow-x: auto;
   justify-content: center;
   padding-bottom:5px;
+  -webkit-overflow-scrolling: touch; /* scroll suave en iOS */
 }
+
 .thumbs-container::-webkit-scrollbar {
   height:6px;
 }
+
 .thumbs-container::-webkit-scrollbar-thumb {
   background: #25D366;
   border-radius:3px;
 }
+
 .thumb {
   flex: 0 0 auto;
   width: 45px;
   border-radius:5px;
   cursor:pointer;
+  transition: transform 0.2s;
+}
+
+.thumb:hover {
+  transform: scale(1.1);
+}
+
+/* Imagen principal ajustable para celulares */
+#led-main {
+  width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 500px) {
+  .card {
+    width: 90%;
+    padding:15px;
+  }
+  #led-main {
+    max-height:180px;
+  }
 }
 </style>
 </head>
@@ -168,8 +195,7 @@ footer{
 
 <!-- Miniaturas con scroll horizontal -->
 <div class="thumbs-container">
-  <!-- La primera miniatura es la principal original -->
-  <img class="thumb" src="IMG_20260312_180252.jpg" data-original="true">
+  <img class="thumb" src="IMG_20260312_180252.jpg">
   <img class="thumb" src="IMG_20260312_180210.jpg">
   <img class="thumb" src="IMG_20260312_180309.jpg">
   <img class="thumb" src="IMG_20260312_180227.jpg">
@@ -237,4 +263,4 @@ thumbs.forEach(thumb => {
 </script>
 
 </body>
-  </html>
+</html>
