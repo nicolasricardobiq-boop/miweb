@@ -89,14 +89,15 @@ header p{
   margin:5px 0;
 }
 
-.card img, .led-main, .celular-main{
+/* Todas las imágenes con zoom al pasar o tocar */
+.card img, .led-main{
   width:100%;
   border-radius:8px;
   cursor:pointer;
   transition: transform 0.3s ease;
 }
 
-.card img:hover, .led-main:hover, .celular-main:hover{
+.card img:hover, .led-main:hover{
   transform: scale(1.1);
 }
 
@@ -121,15 +122,15 @@ footer{
   color:#888;
 }
 
-/* Carruseles */
-.led-card, .celular-card{
+/* Carrusel imagen principal LEDs y Celular */
+.led-card {
   position: relative;
   width: 100%;
   max-width: 240px;
   margin: auto;
 }
 
-.arrow{
+.arrow {
   position:absolute;
   top:50%;
   transform:translateY(-50%);
@@ -143,10 +144,15 @@ footer{
   z-index:10;
 }
 
-.arrow-left{ left:-10px; }
-.arrow-right{ right:-10px; }
+.arrow-left{
+  left:-10px;
+}
 
-.image-indicator{
+.arrow-right{
+  right:-10px;
+}
+
+.image-indicator {
   position:absolute;
   bottom:-25px;
   left:50%;
@@ -182,7 +188,7 @@ footer{
 <h2>Nuestros Productos</h2>
 <div class="grid">
 
-<!-- Producto 1: Luces LED -->
+<!-- Producto 1: Luces LED con carrusel principal -->
 <div class="card">
 <h3>Luces LED Interiores para Autos – Pack 5 Colores</h3>
 <p class="description">Kit de luces LED para el interior de tu vehículo. Fácil instalación, 5 colores disponibles, compatible con cualquier auto. Ideal para iluminación ambiental y personalización del tablero y cabina.</p>
@@ -192,7 +198,7 @@ footer{
   <span class="arrow arrow-left">&#10094;</span>
   <img id="led-main" class="led-main" src="IMG_20260312_180252.jpg" alt="Luces LED">
   <span class="arrow arrow-right">&#10095;</span>
-  <div class="image-indicator" id="led-indicator">1/5</div>
+  <div class="image-indicator" id="image-indicator">1/5</div>
 </div>
 
 <a href="https://wa.me/541130461461?text=Hola%20quiero%20comprar%20las%20luces%20LED%20para%20auto">
@@ -200,17 +206,17 @@ footer{
 </a>
 </div>
 
-<!-- Producto 2: Soporte celular con carrusel -->
+<!-- Producto 2: Soporte de Celular con carrusel -->
 <div class="card">
-<h3>Soporte de Celular para Autos – Pack 8 Imágenes</h3>
-<p class="description">Mantén tu celular seguro y accesible mientras conduces. Rotación 360°, compatible con todos los tamaños de teléfonos. Incluye 8 fotos para ver todos los ángulos del producto.</p>
+<h3>Soporte de Celular 360° para Autos</h3>
+<p class="description">Mantén tu celular seguro y accesible mientras conduces. Compatible con todos los tamaños de teléfonos y rotación 360° para mejor visibilidad.</p>
 <p class="precio">$32.000</p>
 
-<div class="celular-card">
-  <span class="arrow arrow-left" id="cel-left">&#10094;</span>
-  <img id="cel-main" class="celular-main" src="Imagen_20260312_183551.jpg" alt="Soporte Celular">
-  <span class="arrow arrow-right" id="cel-right">&#10095;</span>
-  <div class="image-indicator" id="cel-indicator">1/8</div>
+<div class="led-card">
+  <span class="arrow arrow-left">&#10094;</span>
+  <img id="cel-main" class="led-main" src="IMG_20260312_183551.jpg" alt="Soporte Celular Auto">
+  <span class="arrow arrow-right">&#10095;</span>
+  <div class="image-indicator" id="cel-indicator">1/9</div>
 </div>
 
 <a href="https://wa.me/541130461461?text=Hola%20quiero%20comprar%20el%20soporte%20de%20celular%20para%20auto">
@@ -262,7 +268,7 @@ footer{
 </div>
 
 <script>
-// Carrusel LEDs
+// --- Carrusel LEDs ---
 const ledImages = [
   "IMG_20260312_180252.jpg",
   "IMG_20260312_180210.jpg",
@@ -270,81 +276,107 @@ const ledImages = [
   "IMG_20260312_180227.jpg",
   "IMG_20260312_180157.jpg"
 ];
-let ledIndex = 0;
+let currentIndex = 0;
 const ledMain = document.getElementById("led-main");
-const ledLeft = document.querySelector(".led-card .arrow-left");
-const ledRight = document.querySelector(".led-card .arrow-right");
-const ledIndicator = document.getElementById("led-indicator");
-function updateLed(){
+const leftArrow = document.querySelector(".card .arrow-left");
+const rightArrow = document.querySelector(".card .arrow-right");
+const indicator = document.getElementById("image-indicator");
+
+function updateLedImage(){
   ledMain.style.opacity = 0;
   setTimeout(()=>{
-    ledMain.src = ledImages[ledIndex];
-    ledIndicator.textContent = `${ledIndex+1}/${ledImages.length}`;
+    ledMain.src = ledImages[currentIndex];
+    indicator.textContent = `${currentIndex+1}/${ledImages.length}`;
     ledMain.style.opacity = 1;
   },200);
 }
-ledLeft.addEventListener("click", ()=>{ ledIndex = (ledIndex-1+ledImages.length)%ledImages.length; updateLed(); });
-ledRight.addEventListener("click", ()=>{ ledIndex = (ledIndex+1)%ledImages.length; updateLed(); });
 
-// Carrusel Celular
+leftArrow.addEventListener("click", ()=>{
+  currentIndex = (currentIndex - 1 + ledImages.length) % ledImages.length;
+  updateLedImage();
+});
+rightArrow.addEventListener("click", ()=>{
+  currentIndex = (currentIndex + 1) % ledImages.length;
+  updateLedImage();
+});
+
+// --- Carrusel Soporte Celular ---
 const celImages = [
-"Imagen_20260312_183551.jpg",
-"Imagen_20260312_183604.jpg",
-"Imagen_20260312_183617.jpg",
-"Imagen_20260312_183630.jpg",
-"Imagen_20260312_183644.jpg",
-"Imagen_20260312_183657.jpg",
-"Imagen_20260312_183708.jpg",
-"Imagen_20260312_183722.jpg",
-"Imagen_20260312_183749.jpg"
+  "IMG_20260312_183551.jpg",
+  "IMG_20260312_183604.jpg",
+  "IMG_20260312_183617.jpg",
+  "IMG_20260312_183630.jpg",
+  "IMG_20260312_183644.jpg",
+  "IMG_20260312_183657.jpg",
+  "IMG_20260312_183708.jpg",
+  "IMG_20260312_183722.jpg",
+  "IMG_20260312_183749.jpg"
 ];
-let celIndex = 0;
+let currentCelIndex = 0;
 const celMain = document.getElementById("cel-main");
-const celLeft = document.getElementById("cel-left");
-const celRight = document.getElementById("cel-right");
+const celLeftArrow = celMain.parentElement.querySelector(".arrow-left");
+const celRightArrow = celMain.parentElement.querySelector(".arrow-right");
 const celIndicator = document.getElementById("cel-indicator");
-function updateCel(){
+
+function updateCelImage(){
   celMain.style.opacity = 0;
   setTimeout(()=>{
-    celMain.src = celImages[celIndex];
-    celIndicator.textContent = `${celIndex+1}/${celImages.length}`;
+    celMain.src = celImages[currentCelIndex];
+    celIndicator.textContent = `${currentCelIndex+1}/${celImages.length}`;
     celMain.style.opacity = 1;
   },200);
 }
-celLeft.addEventListener("click", ()=>{ celIndex=(celIndex-1+celImages.length)%celImages.length; updateCel(); });
-celRight.addEventListener("click", ()=>{ celIndex=(celIndex+1)%celImages.length; updateCel(); });
 
-// Modal
+celLeftArrow.addEventListener("click", ()=>{
+  currentCelIndex = (currentCelIndex - 1 + celImages.length) % celImages.length;
+  updateCelImage();
+});
+
+celRightArrow.addEventListener("click", ()=>{
+  currentCelIndex = (currentCelIndex + 1) % celImages.length;
+  updateCelImage();
+});
+
+// --- Modal ---
 const modal = document.getElementById("modal");
 const modalImg = document.getElementById("modal-img");
 const cerrar = document.getElementById("cerrar");
 const modalLeft = document.getElementById("modal-left");
 const modalRight = document.getElementById("modal-right");
 
-// Función para abrir modal
-function openModal(imgSrc){
-  modal.style.display="flex";
-  modalImg.src = imgSrc;
+function openModal(src,indexArray){
+  modal.style.display = "flex";
+  modalImg.src = src;
 }
-ledMain.addEventListener("click", ()=> openModal(ledMain.src));
-celMain.addEventListener("click", ()=> openModal(celMain.src));
-cerrar.addEventListener("click", ()=> modal.style.display="none");
-modal.addEventListener("click",(e)=>{ if(e.target===modal) modal.style.display="none"; });
+
+ledMain.addEventListener("click", ()=>{ openModal(ledMain.src); currentIndex=currentIndex; });
+celMain.addEventListener("click", ()=>{ openModal(celMain.src); currentIndex=currentCelIndex; });
+
+cerrar.addEventListener("click", ()=> modal.style.display = "none");
+modal.addEventListener("click", (e)=> { if(e.target === modal) modal.style.display="none"; });
 
 // Modal flechas
-modalLeft.addEventListener("click",(e)=>{ e.stopPropagation(); nextModal(-1); });
-modalRight.addEventListener("click",(e)=>{ e.stopPropagation(); nextModal(1); });
-
-let modalIndex = 0;
-let modalArray = [];
-function nextModal(step){
-  if(modalImg.src.includes("IMG_20260312_180252")) modalArray = ledImages;
-  else if(modalImg.src.includes("Imagen_20260312_183551")) modalArray = celImages;
-  modalIndex = modalArray.indexOf(modalImg.src.split("/").pop());
-  modalIndex = (modalIndex+step+modalArray.length)%modalArray.length;
-  modalImg.src = modalArray[modalIndex];
-}
+modalLeft.addEventListener("click", (e)=>{
+  e.stopPropagation();
+  if(modalImg.src.includes("IMG_20260312_180252")){ // LED
+    currentIndex = (currentIndex -1 + ledImages.length) % ledImages.length;
+    modalImg.src = ledImages[currentIndex];
+  } else { // Celular
+    currentCelIndex = (currentCelIndex -1 + celImages.length) % celImages.length;
+    modalImg.src = celImages[currentCelIndex];
+  }
+});
+modalRight.addEventListener("click", (e)=>{
+  e.stopPropagation();
+  if(modalImg.src.includes("IMG_20260312_180252")){ // LED
+    currentIndex = (currentIndex +1) % ledImages.length;
+    modalImg.src = ledImages[currentIndex];
+  } else { // Celular
+    currentCelIndex = (currentCelIndex +1) % celImages.length;
+    modalImg.src = celImages[currentCelIndex];
+  }
+});
 </script>
 
 </body>
-  </html>
+    </html>
