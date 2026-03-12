@@ -77,6 +77,7 @@ header p{
 .card img{
   width:100%;
   border-radius:8px;
+  cursor:pointer;
   transition: transform 0.3s;
 }
 
@@ -144,57 +145,23 @@ footer{
 <h2>Productos Destacados</h2>
 <div class="grid">
 
-<!-- Producto 1 -->
+<!-- Producto: Luces LED con galería -->
 <div class="card">
-<img src="IMG_20260312_180252.jpg" alt="Luces LED Interior Auto">
+<img id="led-main" src="IMG_20260312_180252.jpg" alt="Luces LED Interior Auto">
+
 <h3>Luces LED Interior Auto</h3>
 <p class="precio-old">$25.000</p>
 <p class="precio">$20.000</p>
+
+<div style="display:flex; justify-content:center; gap:5px; margin-bottom:10px;">
+  <img class="thumb" src="IMG_20260312_180252.jpg" width="50" style="border-radius:5px; cursor:pointer;">
+  <img class="thumb" src="IMG_20260312_180210.jpg" width="50" style="border-radius:5px; cursor:pointer;">
+  <img class="thumb" src="IMG_20260312_180309.jpg" width="50" style="border-radius:5px; cursor:pointer;">
+  <img class="thumb" src="IMG_20260312_180227.jpg" width="50" style="border-radius:5px; cursor:pointer;">
+  <img class="thumb" src="IMG_20260312_180157.jpg" width="50" style="border-radius:5px; cursor:pointer;">
+</div>
+
 <a href="https://wa.me/541130461461?text=Hola%20quiero%20comprar%20las%20luces%20LED%20para%20auto%20en%20Buenos%20Aires">
-<button class="btn">Comprar por WhatsApp</button>
-</a>
-</div>
-
-<!-- Producto 2 -->
-<div class="card">
-<img src="IMG_20260312_180210.jpg" alt="Soporte Celular Auto 360°">
-<h3>Soporte Celular Auto 360°</h3>
-<p class="precio-old">$38.000</p>
-<p class="precio">$32.000</p>
-<a href="https://wa.me/541130461461?text=Hola%20quiero%20comprar%20el%20soporte%20de%20celular%20para%20auto%20en%20Buenos%20Aires">
-<button class="btn">Comprar por WhatsApp</button>
-</a>
-</div>
-
-<!-- Producto 3 -->
-<div class="card">
-<img src="IMG_20260312_180309.jpg" alt="Cargador USB Auto">
-<h3>Cargador USB Auto</h3>
-<p class="precio-old">$18.000</p>
-<p class="precio">$15.000</p>
-<a href="https://wa.me/541130461461?text=Hola%20quiero%20comprar%20el%20cargador%20USB%20para%20auto%20en%20Buenos%20Aires">
-<button class="btn">Comprar por WhatsApp</button>
-</a>
-</div>
-
-<!-- Producto 4 -->
-<div class="card">
-<img src="IMG_20260312_180227.jpg" alt="Inflador Portátil Auto">
-<h3>Inflador Portátil Auto</h3>
-<p class="precio-old">$40.000</p>
-<p class="precio">$35.000</p>
-<a href="https://wa.me/541130461461?text=Hola%20quiero%20comprar%20el%20inflador%20portatil%20para%20auto%20en%20Buenos%20Aires">
-<button class="btn">Comprar por WhatsApp</button>
-</a>
-</div>
-
-<!-- Producto 5 -->
-<div class="card">
-<img src="IMG_20260312_180157.jpg" alt="Kit Accesorios LED Extra">
-<h3>Kit Accesorios LED Extra</h3>
-<p class="precio-old">$30.000</p>
-<p class="precio">$25.000</p>
-<a href="https://wa.me/541130461461?text=Hola%20quiero%20comprar%20el%20kit%20de%20accesorios%20LED%20en%20Buenos%20Aires">
 <button class="btn">Comprar por WhatsApp</button>
 </a>
 </div>
@@ -212,5 +179,16 @@ footer{
 © 2026 Accesorios para Autos
 </footer>
 
+<script>
+// Cambiar imagen principal al hacer click en miniaturas
+const mainImg = document.getElementById('led-main');
+const thumbs = document.querySelectorAll('.thumb');
+thumbs.forEach(thumb => {
+  thumb.addEventListener('click', () => {
+    mainImg.src = thumb.src;
+  });
+});
+</script>
+
 </body>
-  </html>
+                                          </html>
