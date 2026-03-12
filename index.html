@@ -1,177 +1,228 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Motores de Autos Seleccionados | Compra y Reventa</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tienda de Accesorios para Autos</title>
 
-  <!-- SEO Básico -->
-  <meta name="description" content="Motores de autos seleccionados para venta en Buenos Aires. Disponibilidad verificada para talleres, mecánicos y particulares. Compra y reventa confiable.">
-  <meta name="keywords" content="motores de autos, motores usados, venta de motores, motores Buenos Aires, compra y reventa de motores">
-  <meta name="author" content="Motores de Autos Seleccionados">
-  <meta name="robots" content="index, follow">
+<style>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #0d0d0d;
-      color: white;
-    }
-    nav {
-      background: #000;
-      padding: 15px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    nav h2 {
-      margin: 0;
-      font-weight: 600;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
-    }
-    header {
-      background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), 
-      url('https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=1400&q=80') center/cover;
-      padding: 120px 20px;
-      text-align: center;
-    }
-    header h1 {
-      font-size: 56px;
-      margin-bottom: 20px;
-    }
-    header p {
-      font-size: 22px;
-      max-width: 800px;
-      margin: auto;
-      margin-bottom: 40px;
-      color: #ccc;
-    }
-    button {
-      background: #e10600;
-      border: none;
-      padding: 18px 40px;
-      font-size: 18px;
-      color: white;
-      cursor: pointer;
-      border-radius: 6px;
-      transition: 0.3s;
-    }
-    button:hover {
-      background: #ff1a1a;
-    }
-    section {
-      padding: 80px 20px;
-      text-align: center;
-    }
-    .cards {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 30px;
-      margin-top: 40px;
-    }
-    .card {
-      background: #1a1a1a;
-      padding: 30px;
-      width: 280px;
-      border-radius: 10px;
-      transition: 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-8px);
-    }
-    footer {
-      background: #000;
-      text-align: center;
-      padding: 25px;
-      color: #888;
-    }
-    /* Sección motor disponible */
-    .motor-card {
-      background: #1a1a1a;
-      padding: 25px;
-      margin: 20px auto;
-      max-width: 500px;
-      border-radius: 10px;
-      text-align: left;
-    }
-    .motor-card img {
-      width: 100%;
-      border-radius: 6px;
-      margin: 15px 0;
-    }
-    .motor-card h3 {
-      margin-top: 0;
-      font-size: 22px;
-      color: #e10600;
-    }
-    .motor-card p.precio {
-      font-weight: bold;
-      color: #00c6ff;
-      font-size: 18px;
-    }
-    .motor-card button {
-      display: block;
-      width: 100%;
-      margin-top: 15px;
-    }
-  </style>
+body{
+margin:0;
+font-family:Arial;
+background:#0f0f0f;
+color:white;
+}
+
+nav{
+background:black;
+padding:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+nav h2{
+margin:0;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+}
+
+header{
+text-align:center;
+padding:80px 20px;
+background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.9)),
+url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=80');
+background-size:cover;
+}
+
+header h1{
+font-size:45px;
+}
+
+header p{
+color:#ccc;
+font-size:20px;
+}
+
+.productos{
+padding:60px 20px;
+text-align:center;
+}
+
+.grid{
+display:flex;
+flex-wrap:wrap;
+gap:30px;
+justify-content:center;
+margin-top:40px;
+}
+
+.card{
+background:#1b1b1b;
+border-radius:10px;
+width:260px;
+padding:20px;
+}
+
+.card img{
+width:100%;
+border-radius:8px;
+}
+
+.precio{
+font-size:22px;
+color:#00ff88;
+margin:10px 0;
+}
+
+.btn{
+background:#25D366;
+border:none;
+padding:12px 20px;
+color:white;
+cursor:pointer;
+border-radius:6px;
+font-size:16px;
+}
+
+.btn:hover{
+background:#1ebe5d;
+}
+
+footer{
+background:black;
+text-align:center;
+padding:20px;
+color:#888;
+}
+
+</style>
 </head>
+
 <body>
 
 <nav>
-  <h2>Motores Seleccionados</h2>
-  <div>
-    <a href="#">Inicio</a>
-    <a href="#quienes-somos">Quiénes Somos</a>
-    <a href="#motores">Motores</a>
-    <a href="#contacto">Contacto</a>
-  </div>
+
+<h2>Accesorios para Autos</h2>
+
+<div>
+<a href="#">Inicio</a>
+<a href="#productos">Productos</a>
+<a href="#contacto">Contacto</a>
+</div>
+
 </nav>
 
+
 <header>
-  <h1>Motores de Autos Seleccionados</h1>
-  <p>Disponibilidad verificada para reparación, reemplazo y proyectos especiales. Motores listos para transferir y colocar.</p>
-  <button onclick="window.location.href='#contacto'">Consultar Disponibilidad</button>
+
+<h1>Accesorios para Autos</h1>
+
+<p>Luces LED, soportes para celular y accesorios para tu vehículo</p>
+
 </header>
 
-<section id="quienes-somos">
-  <h2>Quiénes Somos</h2>
-  <p>En Motores Seleccionados, nos dedicamos a la compra y reventa de motores de autos. Con base en Buenos Aires, ofrecemos un servicio confiable, rápido y personalizado, orientado a talleres, mecánicos y particulares que buscan motores certificados y listos para usar.</p>
+
+<section class="productos" id="productos">
+
+<h2>Nuestros Productos</h2>
+
+<div class="grid">
+
+
+<div class="card">
+
+<img src="https://m.media-amazon.com/images/I/61vZ5Q5s8LL._AC_SL1500_.jpg">
+
+<h3>Luces LED Interior Auto</h3>
+
+<p class="precio">$20.000</p>
+
+<a href="https://wa.me/541130461461?text=Hola%20quiero%20comprar%20las%20luces%20LED%20para%20auto">
+
+<button class="btn">Comprar por WhatsApp</button>
+
+</a>
+
+</div>
+
+
+<div class="card">
+
+<img src="https://m.media-amazon.com/images/I/61nQKQ8C5AL._AC_SL1500_.jpg">
+
+<h3>Soporte Celular Auto 360°</h3>
+
+<p class="precio">$32.000</p>
+
+<a href="https://wa.me/541130461461?text=Hola%20quiero%20comprar%20el%20soporte%20de%20celular%20para%20auto">
+
+<button class="btn">Comprar por WhatsApp</button>
+
+</a>
+
+</div>
+
+
+<div class="card">
+
+<img src="https://m.media-amazon.com/images/I/61a6w5kZ3zL._AC_SL1500_.jpg">
+
+<h3>Cargador USB Auto</h3>
+
+<p class="precio">$15.000</p>
+
+<a href="https://wa.me/541130461461?text=Hola%20quiero%20comprar%20el%20cargador%20USB%20para%20auto">
+
+<button class="btn">Comprar por WhatsApp</button>
+
+</a>
+
+</div>
+
+
+<div class="card">
+
+<img src="https://m.media-amazon.com/images/I/61k6N6o1+BL._AC_SL1500_.jpg">
+
+<h3>Inflador Portátil Auto</h3>
+
+<p class="precio">$35.000</p>
+
+<a href="https://wa.me/541130461461?text=Hola%20quiero%20comprar%20el%20inflador%20portatil%20para%20auto">
+
+<button class="btn">Comprar por WhatsApp</button>
+
+</a>
+
+</div>
+
+
+</div>
+
 </section>
 
-<section id="motores">
-  <h2>Motores Disponibles</h2>
 
-  <!-- TEMPLATE MOTOR -->
-  <div class="motor-card">
-    <h3>Motor VW 1.6 8V (2016)</h3>
-    <p>Compatible con: Gol, Saveiro, Fox, Suran</p>
-    <img src="https://raw.githubusercontent.com/nicolasricardobiq-boop/miweb/main/IMG_20260226_083736.jpg" alt="Motor VW 1.6 8V 2016">
-    <p class="precio">$4.200.000 ARS</p>
-    <p>Motor verificado y listo para instalación. Ideal para reemplazo o proyecto. Disponibilidad inmediata.</p>
-    <p><strong>Condiciones de compra:</strong> La operación se realiza con el 100% del pago previo. Una vez acreditado, se coordina envío o retiro.</p>
-    <button onclick="window.location.href='#contacto'">Consultar este motor</button>
-  </div>
-  <!-- FIN TEMPLATE -->
+<section id="contacto" style="text-align:center;padding:60px;">
+
+<h2>Contacto</h2>
+
+<p>Consultas y pedidos por WhatsApp</p>
+
+<p>WhatsApp: 11 3046 1461</p>
 
 </section>
 
-<section id="contacto">
-  <h2>Contacto</h2>
-  <p>Consultanos disponibilidad y modelos actuales.</p>
-  <p>Email: motoresseleccionadosarg@gmail.com</p>
-  <p>Ubicación: Buenos Aires</p>
-  <p>WhatsApp: <a href="https://wa.me/541130461461" style="color: #25D366;">+54 11 3046 1461</a></p>
-</section>
 
 <footer>
-  © 2026 Motores de Autos Seleccionados - Todos los derechos reservados
+
+© 2026 Accesorios para Autos
+
 </footer>
 
 </body>
