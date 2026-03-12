@@ -7,121 +7,114 @@
 
 <style>
 body{
-  margin:0;
-  font-family:Arial;
-  background:#0f0f0f;
-  color:white;
+margin:0;
+font-family:Arial;
+background:#0f0f0f;
+color:white;
 }
 
 nav{
-  background:black;
-  padding:15px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+background:black;
+padding:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
 
 nav h2{
-  margin:0;
+margin:0;
 }
 
 nav a{
-  color:white;
-  text-decoration:none;
-  margin-left:20px;
+color:white;
+text-decoration:none;
+margin-left:20px;
 }
 
 header{
-  text-align:center;
-  padding:80px 20px;
-  background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.9)),
-  url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=80');
-  background-size:cover;
+text-align:center;
+padding:80px 20px;
+background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.9)),
+url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=80');
+background-size:cover;
 }
 
 header h1{
-  font-size:45px;
+font-size:45px;
 }
 
 header p{
-  color:#ccc;
-  font-size:20px;
+color:#ccc;
+font-size:20px;
 }
 
 .productos{
-  padding:60px 20px;
-  text-align:center;
+padding:60px 20px;
+text-align:center;
 }
 
 .grid{
-  display:flex;
-  flex-wrap:wrap;
-  gap:30px;
-  justify-content:center;
-  margin-top:40px;
+display:flex;
+flex-wrap:wrap;
+gap:30px;
+justify-content:center;
+margin-top:40px;
 }
 
 .card{
-  background:#1b1b1b;
-  border-radius:10px;
-  width:260px;
-  padding:20px;
-  transition: transform 0.3s, box-shadow 0.3s;
+background:#1b1b1b;
+border-radius:10px;
+width:260px;
+padding:20px;
+transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover{
-  transform: translateY(-10px);
-  box-shadow: 0 8px 20px rgba(0,255,136,0.4);
+transform: translateY(-10px);
+box-shadow: 0 8px 20px rgba(0,255,136,0.4);
 }
 
 .card img{
-  width:100%;
-  border-radius:8px;
-  cursor:pointer;
-  transition: transform 0.3s;
+width:100%;
+border-radius:8px;
+transition: transform 0.3s;
+cursor:pointer;
 }
 
 .card img:hover{
-  transform: scale(1.05);
+transform: scale(1.05);
 }
 
 .card h3{
-  margin:10px 0 5px 0;
+margin:10px 0 5px 0;
 }
 
 .precio{
-  font-size:20px;
-  color:#00ff88;
-  margin:5px 0;
-}
-
-.precio-old{
-  font-size:16px;
-  color:#888;
-  text-decoration:line-through;
+font-size:20px;
+color:#00ff88;
+margin:5px 0;
 }
 
 .btn{
-  background:#25D366;
-  border:none;
-  padding:12px 20px;
-  color:white;
-  cursor:pointer;
-  border-radius:6px;
-  font-size:16px;
+background:#25D366;
+border:none;
+padding:12px 20px;
+color:white;
+cursor:pointer;
+border-radius:6px;
+font-size:16px;
 }
 
 .btn:hover{
-  background:#1ebe5d;
+background:#1ebe5d;
 }
 
 footer{
-  background:black;
-  text-align:center;
-  padding:20px;
-  color:#888;
+background:black;
+text-align:center;
+padding:20px;
+color:#888;
 }
-
 </style>
 </head>
 
@@ -142,26 +135,55 @@ footer{
 </header>
 
 <section class="productos" id="productos">
-<h2>Productos Destacados</h2>
+<h2>Nuestros Productos</h2>
 <div class="grid">
 
-<!-- Producto: Luces LED con galería -->
+<!-- Producto 1: Luces LED con 5 fotos -->
 <div class="card">
 <img id="led-main" src="IMG_20260312_180252.jpg" alt="Luces LED Interior Auto">
-
 <h3>Luces LED Interior Auto</h3>
-<p class="precio-old">$25.000</p>
 <p class="precio">$20.000</p>
 
+<!-- Miniaturas de las 5 fotos -->
 <div style="display:flex; justify-content:center; gap:5px; margin-bottom:10px;">
-  <img class="thumb" src="IMG_20260312_180252.jpg" width="50" style="border-radius:5px; cursor:pointer;">
-  <img class="thumb" src="IMG_20260312_180210.jpg" width="50" style="border-radius:5px; cursor:pointer;">
-  <img class="thumb" src="IMG_20260312_180309.jpg" width="50" style="border-radius:5px; cursor:pointer;">
-  <img class="thumb" src="IMG_20260312_180227.jpg" width="50" style="border-radius:5px; cursor:pointer;">
-  <img class="thumb" src="IMG_20260312_180157.jpg" width="50" style="border-radius:5px; cursor:pointer;">
+  <img class="thumb" src="IMG_20260312_180252.jpg" width="45">
+  <img class="thumb" src="IMG_20260312_180210.jpg" width="45">
+  <img class="thumb" src="IMG_20260312_180309.jpg" width="45">
+  <img class="thumb" src="IMG_20260312_180227.jpg" width="45">
+  <img class="thumb" src="IMG_20260312_180157.jpg" width="45">
 </div>
 
-<a href="https://wa.me/541130461461?text=Hola%20quiero%20comprar%20las%20luces%20LED%20para%20auto%20en%20Buenos%20Aires">
+<a href="https://wa.me/541130461461?text=Hola%20quiero%20comprar%20las%20luces%20LED%20para%20auto">
+<button class="btn">Comprar por WhatsApp</button>
+</a>
+</div>
+
+<!-- Producto 2 -->
+<div class="card">
+<img src="https://m.media-amazon.com/images/I/61nQKQ8C5AL._AC_SL1500_.jpg" alt="Soporte Celular Auto 360°">
+<h3>Soporte Celular Auto 360°</h3>
+<p class="precio">$32.000</p>
+<a href="https://wa.me/541130461461?text=Hola%20quiero%20comprar%20el%20soporte%20de%20celular%20para%20auto">
+<button class="btn">Comprar por WhatsApp</button>
+</a>
+</div>
+
+<!-- Producto 3 -->
+<div class="card">
+<img src="https://m.media-amazon.com/images/I/61a6w5kZ3zL._AC_SL1500_.jpg" alt="Cargador USB Auto">
+<h3>Cargador USB Auto</h3>
+<p class="precio">$15.000</p>
+<a href="https://wa.me/541130461461?text=Hola%20quiero%20comprar%20el%20cargador%20USB%20para%20auto">
+<button class="btn">Comprar por WhatsApp</button>
+</a>
+</div>
+
+<!-- Producto 4 -->
+<div class="card">
+<img src="https://m.media-amazon.com/images/I/61k6N6o1+BL._AC_SL1500_.jpg" alt="Inflador Portátil Auto">
+<h3>Inflador Portátil Auto</h3>
+<p class="precio">$35.000</p>
+<a href="https://wa.me/541130461461?text=Hola%20quiero%20comprar%20el%20inflador%20portatil%20para%20auto">
 <button class="btn">Comprar por WhatsApp</button>
 </a>
 </div>
@@ -180,7 +202,7 @@ footer{
 </footer>
 
 <script>
-// Cambiar imagen principal al hacer click en miniaturas
+// Cambiar imagen principal de las luces LED al hacer click en miniaturas
 const mainImg = document.getElementById('led-main');
 const thumbs = document.querySelectorAll('.thumb');
 thumbs.forEach(thumb => {
@@ -191,4 +213,4 @@ thumbs.forEach(thumb => {
 </script>
 
 </body>
-                                          </html>
+</html>
