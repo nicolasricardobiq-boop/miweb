@@ -11,6 +11,7 @@ body{
   background:#0f0f0f;
   color:white;
 }
+
 nav{
   background:black;
   padding:15px 40px;
@@ -18,8 +19,17 @@ nav{
   justify-content:space-between;
   align-items:center;
 }
-nav h2{margin:0;}
-nav a{color:white;text-decoration:none;margin-left:20px;}
+
+nav h2{
+  margin:0;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  margin-left:20px;
+}
+
 header{
   text-align:center;
   padding:80px 20px;
@@ -27,10 +37,29 @@ header{
   url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=80');
   background-size:cover;
 }
-header h1{font-size:45px;}
-header p{color:#ccc;font-size:20px;}
-.productos{padding:60px 20px;text-align:center;}
-.grid{display:flex;flex-wrap:wrap;gap:30px;justify-content:center;margin-top:40px;}
+
+header h1{
+  font-size:45px;
+}
+
+header p{
+  color:#ccc;
+  font-size:20px;
+}
+
+.productos{
+  padding:60px 20px;
+  text-align:center;
+}
+
+.grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:30px;
+  justify-content:center;
+  margin-top:40px;
+}
+
 .card{
   background:#1b1b1b;
   border-radius:10px;
@@ -38,51 +67,105 @@ header p{color:#ccc;font-size:20px;}
   padding:20px;
   transition: transform 0.3s, box-shadow 0.3s;
 }
-.card:hover{transform: translateY(-10px);box-shadow:0 8px 20px rgba(0,255,136,0.4);}
-.card h3{margin:10px 0 5px 0;}
-.card p.description{font-size:14px;color:#ccc;margin:5px 0 10px 0;}
-.precio{font-size:20px;color:#00ff88;margin:5px 0;}
-.card img, .led-main{width:100%;border-radius:8px;cursor:pointer;transition: transform 0.3s ease;}
-.card img:hover, .led-main:hover{transform: scale(1.1);}
-.btn{background:#25D366;border:none;padding:12px 20px;color:white;cursor:pointer;border-radius:6px;font-size:16px;}
-.btn:hover{background:#1ebe5d;}
-footer{background:black;text-align:center;padding:20px;color:#888;}
-.led-card{position:relative;width:100%;max-width:240px;margin:auto;}
-.arrow{position:absolute;top:50%;transform:translateY(-50%);font-size:28px;color:white;background:rgba(0,0,0,0.5);padding:6px;border-radius:50%;cursor:pointer;user-select:none;z-index:10;}
-.arrow-left{left:-10px;}
-.arrow-right{right:-10px;}
-.image-indicator{position:absolute;bottom:-25px;left:50%;transform:translateX(-50%);font-size:14px;color:#ccc;}
-@media(max-width:500px){.card{width:90%;}}
 
-/* Modal con lupa */
-#modal{
-  display:none;
-  position:fixed;
-  z-index:1000;
-  top:0;left:0;
-  width:100%;height:100%;
-  background:rgba(0,0,0,0.9);
-  justify-content:center;
-  align-items:center;
+.card:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0,255,136,0.4);
 }
-#modal-img{
-  max-width:90%;
-  max-height:90%;
-  border-radius:10px;
-  cursor:crosshair;
+
+.card h3{
+  margin:10px 0 5px 0;
 }
-.magnifier{
+
+.card p.description{
+  font-size:14px;
+  color:#ccc;
+  margin:5px 0 10px 0;
+}
+
+.precio{
+  font-size:20px;
+  color:#00ff88;
+  margin:5px 0;
+}
+
+/* Todas las imágenes con zoom al pasar o tocar */
+.card img, .led-main{
+  width:100%;
+  border-radius:8px;
+  cursor:pointer;
+  transition: transform 0.3s ease;
+}
+
+.card img:hover, .led-main:hover{
+  transform: scale(1.1);
+}
+
+.btn{
+  background:#25D366;
+  border:none;
+  padding:12px 20px;
+  color:white;
+  cursor:pointer;
+  border-radius:6px;
+  font-size:16px;
+}
+
+.btn:hover{
+  background:#1ebe5d;
+}
+
+footer{
+  background:black;
+  text-align:center;
+  padding:20px;
+  color:#888;
+}
+
+/* Carrusel imagen principal LEDs */
+.led-card {
+  position: relative;
+  width: 100%;
+  max-width: 240px;
+  margin: auto;
+}
+
+.arrow {
   position:absolute;
-  border:3px solid #fff;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:28px;
+  color:white;
+  background:rgba(0,0,0,0.5);
+  padding:6px;
   border-radius:50%;
-  width:150px;
-  height:150px;
-  overflow:hidden;
-  display:none;
-  z-index:2000;
-  pointer-events:none;
+  cursor:pointer;
+  user-select:none;
+  z-index:10;
 }
-.magnifier img{position:absolute;width:auto;height:auto;}
+
+.arrow-left{
+  left:-10px;
+}
+
+.arrow-right{
+  right:-10px;
+}
+
+.image-indicator {
+  position:absolute;
+  bottom:-25px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:14px;
+  color:#ccc;
+}
+
+@media(max-width:500px){
+  .card{
+    width:90%;
+  }
+}
 </style>
 </head>
 <body>
@@ -105,17 +188,19 @@ footer{background:black;text-align:center;padding:20px;color:#888;}
 <h2>Nuestros Productos</h2>
 <div class="grid">
 
-<!-- Producto 1: Luces LED con carrusel -->
+<!-- Producto 1: Luces LED con carrusel principal -->
 <div class="card">
 <h3>Luces LED Interiores para Autos – Pack 5 Colores</h3>
 <p class="description">Kit de luces LED para el interior de tu vehículo. Fácil instalación, 5 colores disponibles, compatible con cualquier auto. Ideal para iluminación ambiental y personalización del tablero y cabina.</p>
 <p class="precio">$20.000</p>
+
 <div class="led-card">
   <span class="arrow arrow-left">&#10094;</span>
   <img id="led-main" class="led-main" src="IMG_20260312_180252.jpg" alt="Luces LED">
   <span class="arrow arrow-right">&#10095;</span>
   <div class="image-indicator" id="image-indicator">1/5</div>
 </div>
+
 <a href="https://wa.me/541130461461?text=Hola%20quiero%20comprar%20las%20luces%20LED%20para%20auto">
 <button class="btn">Comprar por WhatsApp</button>
 </a>
@@ -123,7 +208,7 @@ footer{background:black;text-align:center;padding:20px;color:#888;}
 
 <!-- Producto 2 -->
 <div class="card">
-<img src="https://m.media-amazon.com/images/I/61nQKQ8C5AL._AC_SL1500_.jpg">
+<img src="https://m.media-amazon.com/images/I/61nQKQ8C5AL._AC_SL1500_.jpg" alt="Soporte Celular Auto">
 <h3>Soporte de Celular 360° para Autos</h3>
 <p class="description">Mantén tu celular seguro y accesible mientras conduces. Compatible con todos los tamaños de teléfonos y rotación 360° para mejor visibilidad.</p>
 <p class="precio">$32.000</p>
@@ -134,7 +219,7 @@ footer{background:black;text-align:center;padding:20px;color:#888;}
 
 <!-- Producto 3 -->
 <div class="card">
-<img src="https://m.media-amazon.com/images/I/61a6w5kZ3zL._AC_SL1500_.jpg">
+<img src="https://m.media-amazon.com/images/I/61a6w5kZ3zL._AC_SL1500_.jpg" alt="Cargador USB Auto">
 <h3>Cargador USB para Autos – Rápida Carga</h3>
 <p class="description">Cargador USB de alta velocidad para tu vehículo. Compatible con todos los dispositivos móviles y tablets. Diseño compacto y fácil de usar.</p>
 <p class="precio">$15.000</p>
@@ -145,7 +230,7 @@ footer{background:black;text-align:center;padding:20px;color:#888;}
 
 <!-- Producto 4 -->
 <div class="card">
-<img src="https://m.media-amazon.com/images/I/61k6N6o1+BL._AC_SL1500_.jpg">
+<img src="https://m.media-amazon.com/images/I/61k6N6o1+BL._AC_SL1500_.jpg" alt="Inflador Portátil Auto">
 <h3>Inflador Portátil para Autos – Compresor Eléctrico</h3>
 <p class="description">Inflador compacto y portátil para neumáticos y accesorios inflables. Fácil de usar, rápido y seguro. Ideal para emergencias en el auto.</p>
 <p class="precio">$35.000</p>
@@ -167,17 +252,16 @@ footer{background:black;text-align:center;padding:20px;color:#888;}
 © 2026 Accesorios para Autos
 </footer>
 
-<!-- Modal con lupa -->
-<div id="modal">
+<!-- Modal para ver fotos grandes -->
+<div id="modal" style="display:none;position:fixed;z-index:1000;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);justify-content:center;align-items:center;">
   <span id="cerrar" style="position:absolute;top:20px;right:30px;font-size:40px;cursor:pointer;color:white;">&times;</span>
-  <img id="modal-img">
-  <div class="arrow arrow-left" id="modal-left">&#10094;</div>
-  <div class="arrow arrow-right" id="modal-right">&#10095;</div>
-  <div class="magnifier" id="magnifier"><img id="mag-img"></div>
+  <img id="modal-img" src="" style="max-width:90%;max-height:90%;border-radius:10px;">
+  <span class="arrow arrow-left" id="modal-left" style="left:10px;top:50%;position:absolute;">&#10094;</span>
+  <span class="arrow arrow-right" id="modal-right" style="right:10px;top:50%;position:absolute;">&#10095;</span>
 </div>
 
 <script>
-// LED Carrusel
+// Imagenes LED
 const ledImages = [
   "IMG_20260312_180252.jpg",
   "IMG_20260312_180210.jpg",
@@ -185,64 +269,64 @@ const ledImages = [
   "IMG_20260312_180227.jpg",
   "IMG_20260312_180157.jpg"
 ];
-let currentIndex=0;
-const ledMain=document.getElementById("led-main");
-const leftArrow=document.querySelector(".arrow-left");
-const rightArrow=document.querySelector(".arrow-right");
-const indicator=document.getElementById("image-indicator");
 
+let currentIndex = 0;
+const ledMain = document.getElementById("led-main");
+const leftArrow = document.querySelector(".arrow-left");
+const rightArrow = document.querySelector(".arrow-right");
+const indicator = document.getElementById("image-indicator");
+
+// Función para actualizar imagen con transición suave
 function updateLedImage(){
-  ledMain.style.opacity=0;
+  ledMain.style.opacity = 0;
   setTimeout(()=>{
-    ledMain.src=ledImages[currentIndex];
-    indicator.textContent=`${currentIndex+1}/${ledImages.length}`;
-    ledMain.style.opacity=1;
+    ledMain.src = ledImages[currentIndex];
+    indicator.textContent = `${currentIndex+1}/${ledImages.length}`;
+    ledMain.style.opacity = 1;
   },200);
 }
 
-leftArrow.addEventListener("click",()=>{currentIndex=(currentIndex-1+ledImages.length)%ledImages.length;updateLedImage();});
-rightArrow.addEventListener("click",()=>{currentIndex=(currentIndex+1)%ledImages.length;updateLedImage();});
-
-// Modal
-const modal=document.getElementById("modal");
-const modalImg=document.getElementById("modal-img");
-const cerrar=document.getElementById("cerrar");
-const modalLeft=document.getElementById("modal-left");
-const modalRight=document.getElementById("modal-right");
-
-// Lupa
-const magnifier=document.getElementById("magnifier");
-const magImg=document.getElementById("mag-img");
-
-// Abrir modal y mostrar imagen
-document.querySelectorAll(".card img, .led-main").forEach(img=>{
-  img.addEventListener("click",()=>{
-    modal.style.display="flex";
-    modalImg.src=img.src;
-    magImg.src=img.src;
-    magnifier.style.display="block";
-  });
+// Cambiar imagen principal con flechas
+leftArrow.addEventListener("click", ()=>{
+  currentIndex = (currentIndex - 1 + ledImages.length) % ledImages.length;
+  updateLedImage();
 });
 
-// Cerrar modal
-cerrar.addEventListener("click",()=>modal.style.display="none");
-modal.addEventListener("click",e=>{if(e.target===modal) modal.style.display="none";});
+rightArrow.addEventListener("click", ()=>{
+  currentIndex = (currentIndex + 1) % ledImages.length;
+  updateLedImage();
+});
+
+// Modal
+const modal = document.getElementById("modal");
+const modalImg = document.getElementById("modal-img");
+const cerrar = document.getElementById("cerrar");
+const modalLeft = document.getElementById("modal-left");
+const modalRight = document.getElementById("modal-right");
+
+ledMain.addEventListener("click", ()=>{
+  modal.style.display = "flex";
+  modalImg.src = ledMain.src;
+});
+
+cerrar.addEventListener("click", ()=> modal.style.display = "none");
+modal.addEventListener("click", (e)=> { if(e.target === modal) modal.style.display="none"; });
 
 // Modal flechas
-modalLeft.addEventListener("click",e=>{e.stopPropagation(); currentIndex=(currentIndex-1+ledImages.length)%ledImages.length; modalImg.src=ledImages[currentIndex]; magImg.src=ledImages[currentIndex]; updateLedImage();});
-modalRight.addEventListener("click",e=>{e.stopPropagation(); currentIndex=(currentIndex+1)%ledImages.length; modalImg.src=ledImages[currentIndex]; magImg.src=ledImages[currentIndex]; updateLedImage();});
+modalLeft.addEventListener("click", (e)=>{
+  e.stopPropagation();
+  currentIndex = (currentIndex - 1 + ledImages.length) % ledImages.length;
+  modalImg.src = ledImages[currentIndex];
+  updateLedImage();
+});
 
-// Zoom tipo lupa
-modalImg.addEventListener("mousemove",zoom);
-modalImg.addEventListener("touchmove",zoom);
-function zoom(e){
-  let rect=modalImg.getBoundingClientRect();
-  let x=(e.clientX-rect.left)/rect.width*100;
-  let y=(e.clientY-rect.top)/rect.height*100;
-  magImg.style.left=-x*2+'%';
-  magImg.style.top=-y*2+'%';
-}
+modalRight.addEventListener("click", (e)=>{
+  e.stopPropagation();
+  currentIndex = (currentIndex + 1) % ledImages.length;
+  modalImg.src = ledImages[currentIndex];
+  updateLedImage();
+});
 </script>
 
 </body>
-  </html>
+</html>
