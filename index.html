@@ -105,76 +105,83 @@ footer{
   color:#888;
 }
 
-/* Galería horizontal de fotos de luces LED */
-.led-gallery {
+/* Galería con imagen principal y flechas */
+.led-card {
   display:flex;
-  overflow-x:auto;
-  gap:5px;
-  padding:5px 0;
-  -webkit-overflow-scrolling: touch;
+  flex-direction:column;
+  align-items:center;
 }
 
-.led-gallery::-webkit-scrollbar {
-  height:6px;
-}
-
-.led-gallery::-webkit-scrollbar-thumb {
-  background: #25D366;
-  border-radius:3px;
-}
-
-.led-gallery img {
-  flex:0 0 auto;
-  width:100px;
+.led-main {
+  width:100%;
+  max-width:240px;
   border-radius:8px;
+  margin-bottom:10px;
+  cursor:pointer;
+}
+
+.led-slider-container {
+  position: relative;
+  width:100%;
+  max-width:240px;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+}
+
+.led-slider {
+  display:flex;
+  transition: transform 0.3s ease;
+  gap:5px;
+}
+
+.led-slider img {
+  flex:0 0 auto;
+  width:50px;
+  border-radius:5px;
   cursor:pointer;
   transition: transform 0.2s;
 }
 
-.led-gallery img:hover {
+.led-slider img:hover {
   transform: scale(1.1);
+}
+
+.arrow {
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:24px;
+  color:white;
+  background:rgba(0,0,0,0.5);
+  padding:5px;
+  border-radius:50%;
+  cursor:pointer;
+  user-select:none;
+  z-index:10;
+}
+
+.arrow-left {
+  left:-10px;
+}
+
+.arrow-right {
+  right:-10px;
 }
 
 @media (max-width:500px){
   .card{
     width:90%;
   }
-  .led-gallery img{
-    width:80px;
+  .led-slider img{
+    width:40px;
   }
-}
-
-/* Modal para ver imagen grande */
-#modal {
-  display:none;
-  position:fixed;
-  z-index:1000;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.9);
-  justify-content:center;
-  align-items:center;
-}
-
-#modal img {
-  max-width:90%;
-  max-height:90%;
-  border-radius:10px;
-}
-
-#modal span {
-  position:absolute;
-  top:20px;
-  right:30px;
-  font-size:40px;
-  cursor:pointer;
-  color:white;
+  .led-main{
+    max-width:90%;
+  }
 }
 </style>
 </head>
-
 <body>
 
 <nav>
@@ -195,17 +202,25 @@ footer{
 <h2>Nuestros Productos</h2>
 <div class="grid">
 
-<!-- Producto 1: Luces LED con galería scroll y modal -->
+<!-- Producto 1: Luces LED con principal, flechas y modal -->
 <div class="card">
 <h3>Luces LED Interior Auto</h3>
 <p class="precio">$20.000</p>
 
-<div class="led-gallery">
-  <img src="IMG_20260312_180252.jpg" alt="Luces LED 1">
-  <img src="IMG_20260312_180210.jpg" alt="Luces LED 2">
-  <img src="IMG_20260312_180309.jpg" alt="Luces LED 3">
-  <img src="IMG_20260312_180227.jpg" alt="Luces LED 4">
-  <img src="IMG_20260312_180157.jpg" alt="Luces LED 5">
+<div class="led-card">
+  <img id="led-main" class="led-main" src="IMG_20260312_180252.jpg" alt="Luces LED principal">
+  
+  <div class="led-slider-container">
+    <span class="arrow arrow-left">&#10094;</span>
+    <div class="led-slider">
+      <img src="IMG_20260312_180252.jpg" alt="LED 1">
+      <img src="IMG_20260312_180210.jpg" alt="LED 2">
+      <img src="IMG_20260312_180309.jpg" alt="LED 3">
+      <img src="IMG_20260312_180227.jpg" alt="LED 4">
+      <img src="IMG_20260312_180157.jpg" alt="LED 5">
+    </div>
+    <span class="arrow arrow-right">&#10095;</span>
+  </div>
 </div>
 
 <a href="https://wa.me/541130461461?text=Hola%20quiero%20comprar%20las%20luces%20LED%20para%20auto">
@@ -257,9 +272,9 @@ footer{
 </footer>
 
 <!-- Modal para ver fotos grandes -->
-<div id="modal">
-  <span id="cerrar">&times;</span>
-  <img id="modal-img" src="">
+<div id="modal" style="display:none;position:fixed;z-index:1000;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);justify-content:center;align-items:center;">
+  <span id="cerrar" style="position:absolute;top:20px;right:30px;font-size:40px;cursor:pointer;color:white;">&times;</span>
+  <img id="modal-img" src="" style="max-width:90%;max-height:90%;border-radius:10px;">
 </div>
 
 <script>
@@ -267,12 +282,22 @@ footer{
 const modal = document.getElementById('modal');
 const modalImg = document.getElementById('modal-img');
 const cerrar = document.getElementById('cerrar');
+const ledMain = document.getElementById('led-main');
 
-document.querySelectorAll('.led-gallery img').forEach(img => {
+document.querySelectorAll('.led-slider img').forEach(img => {
   img.addEventListener('click', () => {
+    // Cambia la imagen principal
+    ledMain.src = img.src;
+    // Abre modal al tocar la imagen principal
     modal.style.display = 'flex';
     modalImg.src = img.src;
   });
+});
+
+// Modal principal
+ledMain.addEventListener('click', () => {
+  modal.style.display = 'flex';
+  modalImg.src = ledMain.src;
 });
 
 cerrar.addEventListener('click', () => {
@@ -281,6 +306,19 @@ cerrar.addEventListener('click', () => {
 
 modal.addEventListener('click', (e) => {
   if(e.target === modal) modal.style.display = 'none';
+});
+
+// Slider flechas
+const slider = document.querySelector('.led-slider');
+const leftArrow = document.querySelector('.arrow-left');
+const rightArrow = document.querySelector('.arrow-right');
+
+leftArrow.addEventListener('click', () => {
+  slider.scrollBy({left:-60, behavior:'smooth'});
+});
+
+rightArrow.addEventListener('click', () => {
+  slider.scrollBy({left:60, behavior:'smooth'});
 });
 </script>
 
