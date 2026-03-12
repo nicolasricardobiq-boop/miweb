@@ -7,113 +7,135 @@
 
 <style>
 body{
-margin:0;
-font-family:Arial;
-background:#0f0f0f;
-color:white;
+  margin:0;
+  font-family:Arial;
+  background:#0f0f0f;
+  color:white;
 }
 
 nav{
-background:black;
-padding:15px;
-display:flex;
-justify-content:space-between;
-align-items:center;
+  background:black;
+  padding:15px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
 nav h2{
-margin:0;
+  margin:0;
 }
 
 nav a{
-color:white;
-text-decoration:none;
-margin-left:20px;
+  color:white;
+  text-decoration:none;
+  margin-left:20px;
 }
 
 header{
-text-align:center;
-padding:80px 20px;
-background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.9)),
-url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=80');
-background-size:cover;
+  text-align:center;
+  padding:80px 20px;
+  background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.9)),
+  url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=80');
+  background-size:cover;
 }
 
 header h1{
-font-size:45px;
+  font-size:45px;
 }
 
 header p{
-color:#ccc;
-font-size:20px;
+  color:#ccc;
+  font-size:20px;
 }
 
 .productos{
-padding:60px 20px;
-text-align:center;
+  padding:60px 20px;
+  text-align:center;
 }
 
 .grid{
-display:flex;
-flex-wrap:wrap;
-gap:30px;
-justify-content:center;
-margin-top:40px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:30px;
+  justify-content:center;
+  margin-top:40px;
 }
 
 .card{
-background:#1b1b1b;
-border-radius:10px;
-width:260px;
-padding:20px;
-transition: transform 0.3s, box-shadow 0.3s;
+  background:#1b1b1b;
+  border-radius:10px;
+  width:260px;
+  padding:20px;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover{
-transform: translateY(-10px);
-box-shadow: 0 8px 20px rgba(0,255,136,0.4);
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0,255,136,0.4);
 }
 
 .card img{
-width:100%;
-border-radius:8px;
-transition: transform 0.3s;
-cursor:pointer;
+  width:100%;
+  border-radius:8px;
+  transition: transform 0.3s;
+  cursor:pointer;
 }
 
 .card img:hover{
-transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .card h3{
-margin:10px 0 5px 0;
+  margin:10px 0 5px 0;
 }
 
 .precio{
-font-size:20px;
-color:#00ff88;
-margin:5px 0;
+  font-size:20px;
+  color:#00ff88;
+  margin:5px 0;
 }
 
 .btn{
-background:#25D366;
-border:none;
-padding:12px 20px;
-color:white;
-cursor:pointer;
-border-radius:6px;
-font-size:16px;
+  background:#25D366;
+  border:none;
+  padding:12px 20px;
+  color:white;
+  cursor:pointer;
+  border-radius:6px;
+  font-size:16px;
 }
 
 .btn:hover{
-background:#1ebe5d;
+  background:#1ebe5d;
 }
 
 footer{
-background:black;
-text-align:center;
-padding:20px;
-color:#888;
+  background:black;
+  text-align:center;
+  padding:20px;
+  color:#888;
+}
+
+/* Nuevo estilo para las miniaturas de luces LED */
+.thumbs-container {
+  display: flex;
+  gap:5px;
+  overflow-x: auto;
+  justify-content: center;
+  padding-bottom:5px;
+}
+.thumbs-container::-webkit-scrollbar {
+  height:6px;
+}
+.thumbs-container::-webkit-scrollbar-thumb {
+  background: #25D366;
+  border-radius:3px;
+}
+.thumb {
+  flex: 0 0 auto;
+  width: 45px;
+  border-radius:5px;
+  cursor:pointer;
 }
 </style>
 </head>
@@ -144,13 +166,13 @@ color:#888;
 <h3>Luces LED Interior Auto</h3>
 <p class="precio">$20.000</p>
 
-<!-- Miniaturas de las 5 fotos -->
-<div style="display:flex; justify-content:center; gap:5px; margin-bottom:10px;">
-  <img class="thumb" src="IMG_20260312_180252.jpg" width="45">
-  <img class="thumb" src="IMG_20260312_180210.jpg" width="45">
-  <img class="thumb" src="IMG_20260312_180309.jpg" width="45">
-  <img class="thumb" src="IMG_20260312_180227.jpg" width="45">
-  <img class="thumb" src="IMG_20260312_180157.jpg" width="45">
+<!-- Miniaturas con scroll horizontal -->
+<div class="thumbs-container">
+  <img class="thumb" src="IMG_20260312_180252.jpg">
+  <img class="thumb" src="IMG_20260312_180210.jpg">
+  <img class="thumb" src="IMG_20260312_180309.jpg">
+  <img class="thumb" src="IMG_20260312_180227.jpg">
+  <img class="thumb" src="IMG_20260312_180157.jpg">
 </div>
 
 <a href="https://wa.me/541130461461?text=Hola%20quiero%20comprar%20las%20luces%20LED%20para%20auto">
@@ -213,4 +235,4 @@ thumbs.forEach(thumb => {
 </script>
 
 </body>
-</html>
+  </html>
