@@ -116,6 +116,13 @@ footer{
   width: 100%;
   border-radius: 8px;
   cursor:pointer;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Zoom al pasar mouse/touch */
+.led-main:hover{
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
 }
 
 .arrow {
@@ -138,6 +145,15 @@ footer{
 
 .arrow-right{
   right:-10px;
+}
+
+.image-indicator {
+  position:absolute;
+  bottom:-25px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:14px;
+  color:#ccc;
 }
 
 @media(max-width:500px){
@@ -176,6 +192,7 @@ footer{
   <span class="arrow arrow-left">&#10094;</span>
   <img id="led-main" class="led-main" src="IMG_20260312_180252.jpg" alt="Luces LED">
   <span class="arrow arrow-right">&#10095;</span>
+  <div class="image-indicator" id="image-indicator">1/5</div>
 </div>
 
 <a href="https://wa.me/541130461461?text=Hola%20quiero%20comprar%20las%20luces%20LED%20para%20auto">
@@ -249,16 +266,27 @@ let currentIndex = 0;
 const ledMain = document.getElementById("led-main");
 const leftArrow = document.querySelector(".arrow-left");
 const rightArrow = document.querySelector(".arrow-right");
+const indicator = document.getElementById("image-indicator");
+
+// Función para actualizar imagen con transición suave
+function updateLedImage(){
+  ledMain.style.opacity = 0;
+  setTimeout(()=>{
+    ledMain.src = ledImages[currentIndex];
+    indicator.textContent = `${currentIndex+1}/${ledImages.length}`;
+    ledMain.style.opacity = 1;
+  },200);
+}
 
 // Cambiar imagen principal con flechas
 leftArrow.addEventListener("click", ()=>{
   currentIndex = (currentIndex - 1 + ledImages.length) % ledImages.length;
-  ledMain.src = ledImages[currentIndex];
+  updateLedImage();
 });
 
 rightArrow.addEventListener("click", ()=>{
   currentIndex = (currentIndex + 1) % ledImages.length;
-  ledMain.src = ledImages[currentIndex];
+  updateLedImage();
 });
 
 // Modal
@@ -281,16 +309,16 @@ modalLeft.addEventListener("click", (e)=>{
   e.stopPropagation();
   currentIndex = (currentIndex - 1 + ledImages.length) % ledImages.length;
   modalImg.src = ledImages[currentIndex];
-  ledMain.src = ledImages[currentIndex];
+  updateLedImage();
 });
 
 modalRight.addEventListener("click", (e)=>{
   e.stopPropagation();
   currentIndex = (currentIndex + 1) % ledImages.length;
   modalImg.src = ledImages[currentIndex];
-  ledMain.src = ledImages[currentIndex];
+  updateLedImage();
 });
 </script>
 
 </body>
-</html>
+  </html>
