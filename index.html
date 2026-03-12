@@ -89,6 +89,18 @@ header p{
   margin:5px 0;
 }
 
+/* Todas las imágenes con zoom al pasar o tocar */
+.card img, .led-main{
+  width:100%;
+  border-radius:8px;
+  cursor:pointer;
+  transition: transform 0.3s ease;
+}
+
+.card img:hover, .led-main:hover{
+  transform: scale(1.1);
+}
+
 .btn{
   background:#25D366;
   border:none;
@@ -110,25 +122,12 @@ footer{
   color:#888;
 }
 
-/* Carrusel imagen principal */
+/* Carrusel imagen principal LEDs */
 .led-card {
   position: relative;
   width: 100%;
   max-width: 240px;
   margin: auto;
-}
-
-.led-main {
-  width: 100%;
-  border-radius: 8px;
-  cursor:pointer;
-  transition: opacity 0.5s ease-in-out;
-}
-
-/* Zoom al pasar mouse/touch */
-.led-main:hover{
-  transform: scale(1.05);
-  transition: transform 0.3s ease;
 }
 
 .arrow {
@@ -272,7 +271,6 @@ const ledImages = [
 ];
 
 let currentIndex = 0;
-
 const ledMain = document.getElementById("led-main");
 const leftArrow = document.querySelector(".arrow-left");
 const rightArrow = document.querySelector(".arrow-right");
@@ -331,4 +329,4 @@ modalRight.addEventListener("click", (e)=>{
 </script>
 
 </body>
-  </html>
+</html>
