@@ -11,7 +11,6 @@ body{
   background:#0f0f0f;
   color:white;
 }
-
 nav{
   background:black;
   padding:15px 40px;
@@ -19,17 +18,12 @@ nav{
   justify-content:space-between;
   align-items:center;
 }
-
-nav h2{
-  margin:0;
-}
-
+nav h2{margin:0;}
 nav a{
   color:white;
   text-decoration:none;
   margin-left:20px;
 }
-
 header{
   text-align:center;
   padding:80px 20px;
@@ -37,29 +31,10 @@ header{
   url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=80');
   background-size:cover;
 }
-
-header h1{
-  font-size:45px;
-}
-
-header p{
-  color:#ccc;
-  font-size:20px;
-}
-
-.productos{
-  padding:60px 20px;
-  text-align:center;
-}
-
-.grid{
-  display:flex;
-  flex-wrap:wrap;
-  gap:30px;
-  justify-content:center;
-  margin-top:40px;
-}
-
+header h1{font-size:45px;}
+header p{color:#ccc;font-size:20px;}
+.productos{padding:60px 20px;text-align:center;}
+.grid{display:flex;flex-wrap:wrap;gap:30px;justify-content:center;margin-top:40px;}
 .card{
   background:#1b1b1b;
   border-radius:10px;
@@ -67,28 +42,13 @@ header p{
   padding:20px;
   transition: transform 0.3s, box-shadow 0.3s;
 }
-
 .card:hover{
   transform: translateY(-10px);
   box-shadow: 0 8px 20px rgba(0,255,136,0.4);
 }
-
-.card h3{
-  margin:10px 0 5px 0;
-}
-
-.card p.description{
-  font-size:14px;
-  color:#ccc;
-  margin:5px 0 10px 0;
-}
-
-.precio{
-  font-size:20px;
-  color:#00ff88;
-  margin:5px 0;
-}
-
+.card h3{margin:10px 0 5px 0;}
+.card p.description{font-size:14px;color:#ccc;margin:5px 0 10px 0;}
+.precio{font-size:20px;color:#00ff88;margin:5px 0;}
 .btn{
   background:#25D366;
   border:none;
@@ -98,33 +58,25 @@ header p{
   border-radius:6px;
   font-size:16px;
 }
-
-.btn:hover{
-  background:#1ebe5d;
-}
-
+.btn:hover{background:#1ebe5d;}
 footer{
   background:black;
   text-align:center;
   padding:20px;
   color:#888;
 }
-
-/* Carrusel imagen principal */
 .led-card, .support-card, .charger-card{
   position: relative;
   width: 100%;
   max-width: 240px;
   margin: auto;
 }
-
 .led-main, .support-main, .charger-main {
   width: 100%;
   border-radius: 8px;
   cursor:pointer;
   transition: opacity 0.3s ease-in-out;
 }
-
 .arrow {
   position:absolute;
   top:50%;
@@ -138,15 +90,8 @@ footer{
   user-select:none;
   z-index:10;
 }
-
-.arrow-left{
-  left:-10px;
-}
-
-.arrow-right{
-  right:-10px;
-}
-
+.arrow-left{left:-10px;}
+.arrow-right{right:-10px;}
 .image-indicator {
   position:absolute;
   bottom:-25px;
@@ -155,12 +100,7 @@ footer{
   font-size:14px;
   color:#ccc;
 }
-
-@media(max-width:500px){
-  .card{
-    width:90%;
-  }
-}
+@media(max-width:500px){.card{width:90%;}}
 </style>
 </head>
 <body>
@@ -188,17 +128,14 @@ footer{
 <h3>Luces LED Interiores para Autos – Pack 5 Colores</h3>
 <p class="description">Kit de luces LED para el interior de tu vehículo. Fácil instalación, 5 colores disponibles, compatible con cualquier auto. Ideal para iluminación ambiental y personalización del tablero y cabina.</p>
 <p class="precio">$20.000</p>
-
 <div class="led-card">
   <span class="arrow arrow-left" id="led-left">&#10094;</span>
   <img id="led-main" class="led-main" src="IMG_20260312_180252.jpg" alt="Luces LED">
   <span class="arrow arrow-right" id="led-right">&#10095;</span>
   <div class="image-indicator" id="led-indicator">1/5</div>
 </div>
-
 <a href="https://wa.me/541130461461?text=Hola%20quiero%20comprar%20las%20luces%20LED%20para%20auto">
-<button class="btn">Comprar por WhatsApp</button>
-</a>
+<button class="btn">Comprar por WhatsApp</button></a>
 </div>
 
 <!-- Producto 2: Soporte Celular -->
@@ -206,35 +143,29 @@ footer{
 <h3>Soporte de Celular 360° para Autos</h3>
 <p class="description">Mantén tu celular seguro y accesible mientras conduces. Compatible con todos los tamaños de teléfonos y rotación 360° para mejor visibilidad.</p>
 <p class="precio">$32.000</p>
-
 <div class="support-card">
   <span class="arrow arrow-left" id="support-left">&#10094;</span>
-  <img id="support-main" class="support-main" src="Imagen_20260312_183551.jpg" alt="Soporte Celular">
+  <img id="support-main" class="support-main" src="IMG_20260312_183551.jpg" alt="Soporte Celular">
   <span class="arrow arrow-right" id="support-right">&#10095;</span>
   <div class="image-indicator" id="support-indicator">1/8</div>
 </div>
-
 <a href="https://wa.me/541130461461?text=Hola%20quiero%20comprar%20el%20soporte%20de%20celular%20para%20auto">
-<button class="btn">Comprar por WhatsApp</button>
-</a>
+<button class="btn">Comprar por WhatsApp</button></a>
 </div>
 
 <!-- Producto 3: Cargador USB -->
 <div class="card">
 <h3>Cargador USB Dual + Tipo C 63W – Rápida Carga</h3>
-<p class="description">Cargador rápido de 63W con soporte para protocolos PPS/PD3.0/QC3.0/FCP. Puerto USB Tipo C con carga de 45W y USB A con 18W. Protección contra sobrecorriente, sobretensión y sobrecalentamiento. Diseño resistente y luz LED azul para fácil localización.</p>
+<p class="description">Cargador rápido de 63W con soporte para PPS/PD3.0/QC3.0/FCP. Puerto USB Tipo C con 45W y USB A con 18W. Protección contra sobrecorriente, sobretensión y sobrecalentamiento. Diseño resistente con luz LED azul para localizar en la oscuridad.</p>
 <p class="precio">$35.000</p>
-
 <div class="charger-card">
   <span class="arrow arrow-left" id="charger-left">&#10094;</span>
-  <img id="charger-main" class="charger-main" src="Imagen_20260312_215132.jpg" alt="Cargador USB">
+  <img id="charger-main" class="charger-main" src="IMG_20260312_215132.jpg" alt="Cargador USB">
   <span class="arrow arrow-right" id="charger-right">&#10095;</span>
   <div class="image-indicator" id="charger-indicator">1/8</div>
 </div>
-
 <a href="https://wa.me/541130461461?text=Hola%20quiero%20comprar%20el%20cargador%20USB%20para%20auto">
-<button class="btn">Comprar por WhatsApp</button>
-</a>
+<button class="btn">Comprar por WhatsApp</button></a>
 </div>
 
 </div>
@@ -250,110 +181,76 @@ footer{
 © 2026 Accesorios para Autos
 </footer>
 
-<!-- Modales independientes -->
+<!-- Modales -->
 <div id="modal-led" style="display:none;position:fixed;z-index:1000;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);justify-content:center;align-items:center;">
   <span id="close-led" style="position:absolute;top:20px;right:30px;font-size:40px;cursor:pointer;color:white;">&times;</span>
   <img id="modal-led-img" src="" style="max-width:90%;max-height:90%;border-radius:10px;">
-  <span class="arrow arrow-left" id="modal-led-left" style="left:10px;top:50%;position:absolute;">&#10094;</span>
-  <span class="arrow arrow-right" id="modal-led-right" style="right:10px;top:50%;position:absolute;">&#10095;</span>
+  <span class="arrow arrow-left" id="modal-led-left">&#10094;</span>
+  <span class="arrow arrow-right" id="modal-led-right">&#10095;</span>
 </div>
 
 <div id="modal-support" style="display:none;position:fixed;z-index:1000;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);justify-content:center;align-items:center;">
   <span id="close-support" style="position:absolute;top:20px;right:30px;font-size:40px;cursor:pointer;color:white;">&times;</span>
   <img id="modal-support-img" src="" style="max-width:90%;max-height:90%;border-radius:10px;">
-  <span class="arrow arrow-left" id="modal-support-left" style="left:10px;top:50%;position:absolute;">&#10094;</span>
-  <span class="arrow arrow-right" id="modal-support-right" style="right:10px;top:50%;position:absolute;">&#10095;</span>
+  <span class="arrow arrow-left" id="modal-support-left">&#10094;</span>
+  <span class="arrow arrow-right" id="modal-support-right">&#10095;</span>
 </div>
 
 <div id="modal-charger" style="display:none;position:fixed;z-index:1000;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);justify-content:center;align-items:center;">
   <span id="close-charger" style="position:absolute;top:20px;right:30px;font-size:40px;cursor:pointer;color:white;">&times;</span>
   <img id="modal-charger-img" src="" style="max-width:90%;max-height:90%;border-radius:10px;">
-  <span class="arrow arrow-left" id="modal-charger-left" style="left:10px;top:50%;position:absolute;">&#10094;</span>
-  <span class="arrow arrow-right" id="modal-charger-right" style="right:10px;top:50%;position:absolute;">&#10095;</span>
+  <span class="arrow arrow-left" id="modal-charger-left">&#10094;</span>
+  <span class="arrow arrow-right" id="modal-charger-right">&#10095;</span>
 </div>
 
 <script>
+// --- Función genérica para carruseles y modales ---
+function setupCarousel(mainId, images, leftId, rightId, indicatorId, modalId, modalImgId, modalLeftId, modalRightId, closeId){
+  let index=0;
+  const main=document.getElementById(mainId);
+  const indicator=document.getElementById(indicatorId);
+  const left=document.getElementById(leftId);
+  const right=document.getElementById(rightId);
+  const modal=document.getElementById(modalId);
+  const modalImg=document.getElementById(modalImgId);
+  const modalLeft=document.getElementById(modalLeftId);
+  const modalRight=document.getElementById(modalRightId);
+  const close=document.getElementById(closeId);
+
+  function update(){main.src=images[index]; indicator.textContent=`${index+1}/${images.length}`;}
+  left.addEventListener("click",()=>{index=(index-1+images.length)%images.length;update();});
+  right.addEventListener("click",()=>{index=(index+1)%images.length;update();});
+
+  main.addEventListener("click",()=>{modal.style.display="flex"; modalImg.src=main.src;});
+  close.addEventListener("click",()=>{modal.style.display="none";});
+  modalLeft.addEventListener("click",(e)=>{e.stopPropagation(); index=(index-1+images.length)%images.length; modalImg.src=images[index]; update();});
+  modalRight.addEventListener("click",(e)=>{e.stopPropagation(); index=(index+1)%images.length; modalImg.src=images[index]; update();});
+  modal.addEventListener("click",(e)=>{if(e.target===modal) modal.style.display="none";});
+
+  update();
+}
+
 // Luces LED
-const ledImages = [
-  "IMG_20260312_180252.jpg",
-  "IMG_20260312_180210.jpg",
-  "IMG_20260312_180309.jpg",
-  "IMG_20260312_180227.jpg",
-  "IMG_20260312_180157.jpg"
-];
-let ledIndex = 0;
-const ledMain = document.getElementById("led-main");
-const ledIndicator = document.getElementById("led-indicator");
-const ledLeft = document.getElementById("led-left");
-const ledRight = document.getElementById("led-right");
-function updateLed(){ ledMain.src = ledImages[ledIndex]; ledIndicator.textContent=`${ledIndex+1}/${ledImages.length}`;}
-ledLeft.addEventListener("click",()=>{ledIndex=(ledIndex-1+ledImages.length)%ledImages.length;updateLed();});
-ledRight.addEventListener("click",()=>{ledIndex=(ledIndex+1)%ledImages.length;updateLed();});
-// Modal LED
-const modalLed = document.getElementById("modal-led");
-const modalLedImg = document.getElementById("modal-led-img");
-ledMain.addEventListener("click",()=>{modalLed.style.display="flex"; modalLedImg.src=ledMain.src;});
-document.getElementById("close-led").addEventListener("click",()=>{modalLed.style.display="none";});
-document.getElementById("modal-led-left").addEventListener("click",(e)=>{e.stopPropagation(); ledIndex=(ledIndex-1+ledImages.length)%ledImages.length; modalLedImg.src=ledImages[ledIndex]; updateLed();});
-document.getElementById("modal-led-right").addEventListener("click",(e)=>{e.stopPropagation(); ledIndex=(ledIndex+1)%ledImages.length; modalLedImg.src=ledImages[ledIndex]; updateLed();});
-modalLed.addEventListener("click",(e)=>{if(e.target===modalLed) modalLed.style.display="none";});
+setupCarousel("led-main",
+  ["IMG_20260312_180252.jpg","IMG_20260312_180210.jpg","IMG_20260312_180309.jpg","IMG_20260312_180227.jpg","IMG_20260312_180157.jpg"],
+  "led-left","led-right","led-indicator",
+  "modal-led","modal-led-img","modal-led-left","modal-led-right","close-led"
+);
 
 // Soporte Celular
-const supportImages = [
-  "Imagen_20260312_183551.jpg",
-  "Imagen_20260312_183604.jpg",
-  "Imagen_20260312_183617.jpg",
-  "Imagen_20260312_183630.jpg",
-  "Imagen_20260312_183644.jpg",
-  "Imagen_20260312_183657.jpg",
-  "Imagen_20260312_183708.jpg",
-  "Imagen_20260312_183722.jpg"
-];
-let supportIndex=0;
-const supportMain=document.getElementById("support-main");
-const supportIndicator=document.getElementById("support-indicator");
-const supportLeft=document.getElementById("support-left");
-const supportRight=document.getElementById("support-right");
-function updateSupport(){supportMain.src=supportImages[supportIndex]; supportIndicator.textContent=`${supportIndex+1}/${supportImages.length}`;}
-supportLeft.addEventListener("click",()=>{supportIndex=(supportIndex-1+supportImages.length)%supportImages.length; updateSupport();});
-supportRight.addEventListener("click",()=>{supportIndex=(supportIndex+1)%supportImages.length; updateSupport();});
-// Modal Soporte
-const modalSupport=document.getElementById("modal-support");
-const modalSupportImg=document.getElementById("modal-support-img");
-supportMain.addEventListener("click",()=>{modalSupport.style.display="flex"; modalSupportImg.src=supportMain.src;});
-document.getElementById("close-support").addEventListener("click",()=>{modalSupport.style.display="none";});
-document.getElementById("modal-support-left").addEventListener("click",(e)=>{e.stopPropagation(); supportIndex=(supportIndex-1+supportImages.length)%supportImages.length; modalSupportImg.src=supportImages[supportIndex]; updateSupport();});
-document.getElementById("modal-support-right").addEventListener("click",(e)=>{e.stopPropagation(); supportIndex=(supportIndex+1)%supportImages.length; modalSupportImg.src=supportImages[supportIndex]; updateSupport();});
-modalSupport.addEventListener("click",(e)=>{if(e.target===modalSupport) modalSupport.style.display="none";});
+setupCarousel("support-main",
+  ["IMG_20260312_183551.jpg","IMG_20260312_183604.jpg","IMG_20260312_183617.jpg","IMG_20260312_183630.jpg","IMG_20260312_183644.jpg","IMG_20260312_183657.jpg","IMG_20260312_183708.jpg","IMG_20260312_183722.jpg"],
+  "support-left","support-right","support-indicator",
+  "modal-support","modal-support-img","modal-support-left","modal-support-right","close-support"
+);
 
 // Cargador USB
-const chargerImages=[
-  "Imagen_20260312_215132.jpg",
-  "Imagen_20260312_215147.jpg",
-  "Imagen_20260312_215207.jpg",
-  "Imagen_20260312_215253.jpg",
-  "Imagen_20260312_215228.jpg",
-  "Imagen_20260312_215018.jpg",
-  "Imagen_20260312_215045.jpg",
-  "Imagen_20260312_215108.jpg"
-];
-let chargerIndex=0;
-const chargerMain=document.getElementById("charger-main");
-const chargerIndicator=document.getElementById("charger-indicator");
-const chargerLeft=document.getElementById("charger-left");
-const chargerRight=document.getElementById("charger-right");
-function updateCharger(){chargerMain.src=chargerImages[chargerIndex]; chargerIndicator.textContent=`${chargerIndex+1}/${chargerImages.length}`;}
-chargerLeft.addEventListener("click",()=>{chargerIndex=(chargerIndex-1+chargerImages.length)%chargerImages.length; updateCharger();});
-chargerRight.addEventListener("click",()=>{chargerIndex=(chargerIndex+1)%chargerImages.length; updateCharger();});
-// Modal Cargador
-const modalCharger=document.getElementById("modal-charger");
-const modalChargerImg=document.getElementById("modal-charger-img");
-chargerMain.addEventListener("click",()=>{modalCharger.style.display="flex"; modalChargerImg.src=chargerMain.src;});
-document.getElementById("close-charger").addEventListener("click",()=>{modalCharger.style.display="none";});
-document.getElementById("modal-charger-left").addEventListener("click",(e)=>{e.stopPropagation(); chargerIndex=(chargerIndex-1+chargerImages.length)%chargerImages.length; modalChargerImg.src=chargerImages[chargerIndex]; updateCharger();});
-document.getElementById("modal-charger-right").addEventListener("click",(e)=>{e.stopPropagation(); chargerIndex=(chargerIndex+1)%chargerImages.length; modalChargerImg.src=chargerImages[chargerIndex]; updateCharger();});
-modalCharger.addEventListener("click",(e)=>{if(e.target===modalCharger) modalCharger.style.display="none";});
+setupCarousel("charger-main",
+  ["IMG_20260312_215132.jpg","IMG_20260312_215147.jpg","IMG_20260312_215207.jpg","IMG_20260312_215253.jpg","IMG_20260312_215228.jpg","IMG_20260312_215018.jpg","IMG_20260312_215045.jpg","IMG_20260312_215108.jpg"],
+  "charger-left","charger-right","charger-indicator",
+  "modal-charger","modal-charger-img","modal-charger-left","modal-charger-right","close-charger"
+);
 </script>
 
 </body>
-    </html>
+</html>
