@@ -190,10 +190,10 @@ footer{
 <p class="precio">$20.000</p>
 
 <div class="led-card">
-  <span class="arrow arrow-left" id="led-left">&#10094;</span>
+  <span class="arrow arrow-left">&#10094;</span>
   <img id="led-main" class="led-main" src="IMG_20260312_180252.jpg" alt="Luces LED">
-  <span class="arrow arrow-right" id="led-right">&#10095;</span>
-  <div class="image-indicator" id="led-indicator">1/5</div>
+  <span class="arrow arrow-right">&#10095;</span>
+  <div class="image-indicator" id="image-indicator">1/5</div>
 </div>
 
 <a href="https://wa.me/541130461461?text=Hola%20quiero%20comprar%20las%20luces%20LED%20para%20auto">
@@ -201,17 +201,17 @@ footer{
 </a>
 </div>
 
-<!-- Producto 2: Soporte Celular -->
+<!-- Producto 2: Soporte de Celular -->
 <div class="card">
 <h3>Soporte de Celular 360° para Autos</h3>
 <p class="description">Mantén tu celular seguro y accesible mientras conduces. Compatible con todos los tamaños de teléfonos y rotación 360° para mejor visibilidad.</p>
 <p class="precio">$32.000</p>
 
 <div class="led-card">
-  <span class="arrow arrow-left" id="support-left">&#10094;</span>
-  <img id="support-main" class="led-main" src="IMG_20260312_183551.jpg" alt="Soporte Celular">
-  <span class="arrow arrow-right" id="support-right">&#10095;</span>
-  <div class="image-indicator" id="support-indicator">1/8</div>
+  <span class="arrow arrow-left" id="holder-left">&#10094;</span>
+  <img id="holder-main" class="led-main" src="Imagen_20260312_183551.jpg" alt="Soporte Celular Auto">
+  <span class="arrow arrow-right" id="holder-right">&#10095;</span>
+  <div class="image-indicator" id="holder-indicator">1/8</div>
 </div>
 
 <a href="https://wa.me/541130461461?text=Hola%20quiero%20comprar%20el%20soporte%20de%20celular%20para%20auto">
@@ -221,22 +221,20 @@ footer{
 
 <!-- Producto 3: Cargador USB -->
 <div class="card">
-<img src="https://m.media-amazon.com/images/I/61a6w5kZ3zL._AC_SL1500_.jpg" alt="Cargador USB Auto">
-<h3>Cargador USB para Autos – Rápida Carga</h3>
-<p class="description">Cargador USB de alta velocidad para tu vehículo. Compatible con todos los dispositivos móviles y tablets. Diseño compacto y fácil de usar.</p>
-<p class="precio">$15.000</p>
-<a href="https://wa.me/541130461461?text=Hola%20quiero%20comprar%20el%20cargador%20USB%20para%20auto">
-<button class="btn">Comprar por WhatsApp</button>
-</a>
+<h3>Cargador Para Auto Dual USB + Tipo C 63W – Carga Rápida</h3>
+<p class="description">
+Cargador rápido de 63W para tu vehículo con puertos USB Tipo C (45W) y USB A (18W). Compatible con PPS/PD3.0/QC3.0/FCP. Protección contra sobrecorriente, sobretensión y sobrecalentamiento. Diseño resistente y luz LED azul para fácil localización en la oscuridad.
+</p>
+<p class="precio">$35.000</p>
+
+<div class="led-card">
+  <span class="arrow arrow-left" id="charger-left">&#10094;</span>
+  <img id="charger-main" class="led-main" src="Imagen_20260312_215132.jpg" alt="Cargador USB Auto">
+  <span class="arrow arrow-right" id="charger-right">&#10095;</span>
+  <div class="image-indicator" id="charger-indicator">1/8</div>
 </div>
 
-<!-- Producto 4: Inflador -->
-<div class="card">
-<img src="https://m.media-amazon.com/images/I/61k6N6o1+BL._AC_SL1500_.jpg" alt="Inflador Portátil Auto">
-<h3>Inflador Portátil para Autos – Compresor Eléctrico</h3>
-<p class="description">Inflador compacto y portátil para neumáticos y accesorios inflables. Fácil de usar, rápido y seguro. Ideal para emergencias en el auto.</p>
-<p class="precio">$35.000</p>
-<a href="https://wa.me/541130461461?text=Hola%20quiero%20comprar%20el%20inflador%20portatil%20para%20auto">
+<a href="https://wa.me/541130461461?text=Hola%20quiero%20comprar%20el%20cargador%20USB%20para%20auto">
 <button class="btn">Comprar por WhatsApp</button>
 </a>
 </div>
@@ -254,7 +252,7 @@ footer{
 © 2026 Accesorios para Autos
 </footer>
 
-<!-- Modal -->
+<!-- Modal para ver fotos grandes -->
 <div id="modal" style="display:none;position:fixed;z-index:1000;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);justify-content:center;align-items:center;">
   <span id="cerrar" style="position:absolute;top:20px;right:30px;font-size:40px;cursor:pointer;color:white;">&times;</span>
   <img id="modal-img" src="" style="max-width:90%;max-height:90%;border-radius:10px;">
@@ -263,7 +261,7 @@ footer{
 </div>
 
 <script>
-// Luces LED
+// ---------- Carrusel LED ----------
 const ledImages = [
   "IMG_20260312_180252.jpg",
   "IMG_20260312_180210.jpg",
@@ -271,112 +269,137 @@ const ledImages = [
   "IMG_20260312_180227.jpg",
   "IMG_20260312_180157.jpg"
 ];
-let ledIndex = 0;
+let currentIndex = 0;
 const ledMain = document.getElementById("led-main");
-const ledLeft = document.getElementById("led-left");
-const ledRight = document.getElementById("led-right");
-const ledIndicator = document.getElementById("led-indicator");
+const leftArrow = document.querySelector(".arrow-left");
+const rightArrow = document.querySelector(".arrow-right");
+const indicator = document.getElementById("image-indicator");
 
 function updateLedImage(){
-  ledMain.style.opacity=0;
+  ledMain.style.opacity = 0;
   setTimeout(()=>{
-    ledMain.src=ledImages[ledIndex];
-    ledIndicator.textContent = `${ledIndex+1}/${ledImages.length}`;
-    ledMain.style.opacity=1;
+    ledMain.src = ledImages[currentIndex];
+    indicator.textContent = `${currentIndex+1}/${ledImages.length}`;
+    ledMain.style.opacity = 1;
   },200);
 }
 
-ledLeft.addEventListener("click", ()=>{
-  ledIndex=(ledIndex-1+ledImages.length)%ledImages.length;
+leftArrow.addEventListener("click", ()=>{
+  currentIndex = (currentIndex - 1 + ledImages.length) % ledImages.length;
+  updateLedImage();
+});
+rightArrow.addEventListener("click", ()=>{
+  currentIndex = (currentIndex + 1) % ledImages.length;
   updateLedImage();
 });
 
-ledRight.addEventListener("click", ()=>{
-  ledIndex=(ledIndex+1)%ledImages.length;
-  updateLedImage();
-});
-
-// Soporte Celular
-const supportImages = [
-  "IMG_20260312_183551.jpg",
-  "IMG_20260312_183604.jpg",
-  "IMG_20260312_183617.jpg",
-  "IMG_20260312_183630.jpg",
-  "IMG_20260312_183644.jpg",
-  "IMG_20260312_183657.jpg",
-  "IMG_20260312_183708.jpg",
-  "IMG_20260312_183722.jpg"
+// ---------- Carrusel Soporte Celular ----------
+const holderImages = [
+  "Imagen_20260312_183551.jpg",
+  "Imagen_20260312_183604.jpg",
+  "Imagen_20260312_183617.jpg",
+  "Imagen_20260312_183630.jpg",
+  "Imagen_20260312_183644.jpg",
+  "Imagen_20260312_183657.jpg",
+  "Imagen_20260312_183708.jpg",
+  "Imagen_20260312_183722.jpg"
 ];
-let supportIndex = 0;
-const supportMain = document.getElementById("support-main");
-const supportLeft = document.getElementById("support-left");
-const supportRight = document.getElementById("support-right");
-const supportIndicator = document.getElementById("support-indicator");
+let holderIndex = 0;
+const holderMain = document.getElementById("holder-main");
+const holderLeft = document.getElementById("holder-left");
+const holderRight = document.getElementById("holder-right");
+const holderIndicator = document.getElementById("holder-indicator");
 
-function updateSupportImage(){
-  supportMain.style.opacity=0;
+function updateHolderImage(){
+  holderMain.style.opacity = 0;
   setTimeout(()=>{
-    supportMain.src = supportImages[supportIndex];
-    supportIndicator.textContent = `${supportIndex+1}/${supportImages.length}`;
-    supportMain.style.opacity=1;
+    holderMain.src = holderImages[holderIndex];
+    holderIndicator.textContent = `${holderIndex+1}/${holderImages.length}`;
+    holderMain.style.opacity = 1;
   },200);
 }
 
-supportLeft.addEventListener("click", ()=>{
-  supportIndex = (supportIndex-1+supportImages.length)%supportImages.length;
-  updateSupportImage();
+holderLeft.addEventListener("click", ()=>{
+  holderIndex = (holderIndex - 1 + holderImages.length) % holderImages.length;
+  updateHolderImage();
+});
+holderRight.addEventListener("click", ()=>{
+  holderIndex = (holderIndex + 1) % holderImages.length;
+  updateHolderImage();
 });
 
-supportRight.addEventListener("click", ()=>{
-  supportIndex = (supportIndex+1)%supportImages.length;
-  updateSupportImage();
+// ---------- Carrusel Cargador ----------
+const chargerImages = [
+  "Imagen_20260312_215132.jpg",
+  "Imagen_20260312_215147.jpg",
+  "Imagen_20260312_215207.jpg",
+  "Imagen_20260312_215253.jpg",
+  "Imagen_20260312_215228.jpg",
+  "Imagen_20260312_215018.jpg",
+  "Imagen_20260312_215045.jpg",
+  "Imagen_20260312_215108.jpg"
+];
+let chargerIndex = 0;
+const chargerMain = document.getElementById("charger-main");
+const chargerLeft = document.getElementById("charger-left");
+const chargerRight = document.getElementById("charger-right");
+const chargerIndicator = document.getElementById("charger-indicator");
+
+function updateChargerImage(){
+  chargerMain.style.opacity = 0;
+  setTimeout(()=>{
+    chargerMain.src = chargerImages[chargerIndex];
+    chargerIndicator.textContent = `${chargerIndex+1}/${chargerImages.length}`;
+    chargerMain.style.opacity = 1;
+  },200);
+}
+
+chargerLeft.addEventListener("click", ()=>{
+  chargerIndex = (chargerIndex - 1 + chargerImages.length) % chargerImages.length;
+  updateChargerImage();
+});
+chargerRight.addEventListener("click", ()=>{
+  chargerIndex = (chargerIndex + 1) % chargerImages.length;
+  updateChargerImage();
 });
 
-// Modal general
+// ---------- Modal General ----------
 const modal = document.getElementById("modal");
 const modalImg = document.getElementById("modal-img");
 const cerrar = document.getElementById("cerrar");
 const modalLeft = document.getElementById("modal-left");
 const modalRight = document.getElementById("modal-right");
 
-function openModal(src){
+let modalArray = []; // se asigna al producto clickeado
+let modalIndex = 0;
+
+function openModal(src, imagesArray, index){
   modal.style.display = "flex";
   modalImg.src = src;
+  modalArray = imagesArray;
+  modalIndex = index;
 }
 
-ledMain.addEventListener("click", ()=> openModal(ledMain.src));
-supportMain.addEventListener("click", ()=> openModal(supportMain.src));
-
-cerrar.addEventListener("click", ()=> modal.style.display="none");
-modal.addEventListener("click",(e)=>{if(e.target===modal) modal.style.display="none";});
+cerrar.addEventListener("click", ()=> modal.style.display = "none");
+modal.addEventListener("click", (e)=> { if(e.target === modal) modal.style.display="none"; });
 
 // Modal flechas
-modalLeft.addEventListener("click",(e)=>{
+modalLeft.addEventListener("click", (e)=>{
   e.stopPropagation();
-  if(modalImg.src.includes(ledImages[ledIndex])) {
-    ledIndex = (ledIndex-1+ledImages.length)%ledImages.length;
-    modalImg.src = ledImages[ledIndex];
-    updateLedImage();
-  } else {
-    supportIndex = (supportIndex-1+supportImages.length)%supportImages.length;
-    modalImg.src = supportImages[supportIndex];
-    updateSupportImage();
-  }
+  modalIndex = (modalIndex - 1 + modalArray.length) % modalArray.length;
+  modalImg.src = modalArray[modalIndex];
+});
+modalRight.addEventListener("click", (e)=>{
+  e.stopPropagation();
+  modalIndex = (modalIndex + 1) % modalArray.length;
+  modalImg.src = modalArray[modalIndex];
 });
 
-modalRight.addEventListener("click",(e)=>{
-  e.stopPropagation();
-  if(modalImg.src.includes(ledImages[ledIndex])) {
-    ledIndex = (ledIndex+1)%ledImages.length;
-    modalImg.src = ledImages[ledIndex];
-    updateLedImage();
-  } else {
-    supportIndex = (supportIndex+1)%supportImages.length;
-    modalImg.src = supportImages[supportIndex];
-    updateSupportImage();
-  }
-});
+// Abrir modal al hacer click en cualquier imagen principal
+ledMain.addEventListener("click", ()=> openModal(ledMain.src, ledImages, currentIndex));
+holderMain.addEventListener("click", ()=> openModal(holderMain.src, holderImages, holderIndex));
+chargerMain.addEventListener("click", ()=> openModal(chargerMain.src, chargerImages, chargerIndex));
+
 </script>
-
 </body>
-                                            </html>
+  </html>
