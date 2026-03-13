@@ -111,14 +111,14 @@ footer{
 }
 
 /* Carrusel imagen principal */
-.led-card {
+.product-carousel {
   position: relative;
   width: 100%;
   max-width: 240px;
   margin: auto;
 }
 
-.led-main {
+.product-main {
   width: 100%;
   border-radius: 8px;
   cursor:pointer;
@@ -176,7 +176,7 @@ footer{
 
 <header>
 <h1>Accesorios para Autos</h1>
-<p>Luces LED, soportes para celular y accesorios para tu vehículo</p>
+<p>Luces LED, soportes para celular y cargadores USB para tu vehículo</p>
 </header>
 
 <section class="productos" id="productos">
@@ -189,11 +189,11 @@ footer{
 <p class="description">Kit de luces LED para el interior de tu vehículo. Fácil instalación, 5 colores disponibles, compatible con cualquier auto. Ideal para iluminación ambiental y personalización del tablero y cabina.</p>
 <p class="precio">$20.000</p>
 
-<div class="led-card">
-  <span class="arrow arrow-left">&#10094;</span>
-  <img id="led-main" class="led-main" src="IMG_20260312_180252.jpg" alt="Luces LED">
-  <span class="arrow arrow-right">&#10095;</span>
-  <div class="image-indicator" id="image-indicator">1/5</div>
+<div class="product-carousel">
+  <span class="arrow arrow-left" id="led-left">&#10094;</span>
+  <img id="led-main" class="product-main" src="IMG_20260312_180252.jpg" alt="Luces LED">
+  <span class="arrow arrow-right" id="led-right">&#10095;</span>
+  <div class="image-indicator" id="led-indicator">1/5</div>
 </div>
 
 <a href="https://wa.me/541130461461?text=Hola%20quiero%20comprar%20las%20luces%20LED%20para%20auto">
@@ -201,17 +201,17 @@ footer{
 </a>
 </div>
 
-<!-- Producto 2: Soporte de Celular -->
+<!-- Producto 2: Soporte Celular -->
 <div class="card">
 <h3>Soporte de Celular 360° para Autos</h3>
 <p class="description">Mantén tu celular seguro y accesible mientras conduces. Compatible con todos los tamaños de teléfonos y rotación 360° para mejor visibilidad.</p>
 <p class="precio">$32.000</p>
 
-<div class="led-card">
-  <span class="arrow arrow-left" id="holder-left">&#10094;</span>
-  <img id="holder-main" class="led-main" src="Imagen_20260312_183551.jpg" alt="Soporte Celular Auto">
-  <span class="arrow arrow-right" id="holder-right">&#10095;</span>
-  <div class="image-indicator" id="holder-indicator">1/8</div>
+<div class="product-carousel">
+  <span class="arrow arrow-left" id="soporte-left">&#10094;</span>
+  <img id="soporte-main" class="product-main" src="Imagen_20260312_183551.jpg" alt="Soporte Celular">
+  <span class="arrow arrow-right" id="soporte-right">&#10095;</span>
+  <div class="image-indicator" id="soporte-indicator">1/8</div>
 </div>
 
 <a href="https://wa.me/541130461461?text=Hola%20quiero%20comprar%20el%20soporte%20de%20celular%20para%20auto">
@@ -221,17 +221,15 @@ footer{
 
 <!-- Producto 3: Cargador USB -->
 <div class="card">
-<h3>Cargador Para Auto Dual USB + Tipo C 63W – Carga Rápida</h3>
-<p class="description">
-Cargador rápido de 63W para tu vehículo con puertos USB Tipo C (45W) y USB A (18W). Compatible con PPS/PD3.0/QC3.0/FCP. Protección contra sobrecorriente, sobretensión y sobrecalentamiento. Diseño resistente y luz LED azul para fácil localización en la oscuridad.
-</p>
+<h3>Cargador USB para Autos – Rápida Carga</h3>
+<p class="description">Cargador rápido de 63W con soporte para protocolos PPS/PD3.0/QC3.0/FCP. Puerto USB Tipo C 45W y USB A 18W. Protección contra sobrecorriente, sobrecalentamiento y diseño resistente. Luz LED azul para localizarlo en la oscuridad.</p>
 <p class="precio">$35.000</p>
 
-<div class="led-card">
-  <span class="arrow arrow-left" id="charger-left">&#10094;</span>
-  <img id="charger-main" class="led-main" src="Imagen_20260312_215132.jpg" alt="Cargador USB Auto">
-  <span class="arrow arrow-right" id="charger-right">&#10095;</span>
-  <div class="image-indicator" id="charger-indicator">1/8</div>
+<div class="product-carousel">
+  <span class="arrow arrow-left" id="cargador-left">&#10094;</span>
+  <img id="cargador-main" class="product-main" src="Imagen_20260312_215132.jpg" alt="Cargador USB">
+  <span class="arrow arrow-right" id="cargador-right">&#10095;</span>
+  <div class="image-indicator" id="cargador-indicator">1/8</div>
 </div>
 
 <a href="https://wa.me/541130461461?text=Hola%20quiero%20comprar%20el%20cargador%20USB%20para%20auto">
@@ -261,7 +259,7 @@ Cargador rápido de 63W para tu vehículo con puertos USB Tipo C (45W) y USB A (
 </div>
 
 <script>
-// ---------- Carrusel LED ----------
+// === Imágenes de cada producto ===
 const ledImages = [
   "IMG_20260312_180252.jpg",
   "IMG_20260312_180210.jpg",
@@ -269,32 +267,8 @@ const ledImages = [
   "IMG_20260312_180227.jpg",
   "IMG_20260312_180157.jpg"
 ];
-let currentIndex = 0;
-const ledMain = document.getElementById("led-main");
-const leftArrow = document.querySelector(".arrow-left");
-const rightArrow = document.querySelector(".arrow-right");
-const indicator = document.getElementById("image-indicator");
 
-function updateLedImage(){
-  ledMain.style.opacity = 0;
-  setTimeout(()=>{
-    ledMain.src = ledImages[currentIndex];
-    indicator.textContent = `${currentIndex+1}/${ledImages.length}`;
-    ledMain.style.opacity = 1;
-  },200);
-}
-
-leftArrow.addEventListener("click", ()=>{
-  currentIndex = (currentIndex - 1 + ledImages.length) % ledImages.length;
-  updateLedImage();
-});
-rightArrow.addEventListener("click", ()=>{
-  currentIndex = (currentIndex + 1) % ledImages.length;
-  updateLedImage();
-});
-
-// ---------- Carrusel Soporte Celular ----------
-const holderImages = [
+const soporteImages = [
   "Imagen_20260312_183551.jpg",
   "Imagen_20260312_183604.jpg",
   "Imagen_20260312_183617.jpg",
@@ -304,32 +278,8 @@ const holderImages = [
   "Imagen_20260312_183708.jpg",
   "Imagen_20260312_183722.jpg"
 ];
-let holderIndex = 0;
-const holderMain = document.getElementById("holder-main");
-const holderLeft = document.getElementById("holder-left");
-const holderRight = document.getElementById("holder-right");
-const holderIndicator = document.getElementById("holder-indicator");
 
-function updateHolderImage(){
-  holderMain.style.opacity = 0;
-  setTimeout(()=>{
-    holderMain.src = holderImages[holderIndex];
-    holderIndicator.textContent = `${holderIndex+1}/${holderImages.length}`;
-    holderMain.style.opacity = 1;
-  },200);
-}
-
-holderLeft.addEventListener("click", ()=>{
-  holderIndex = (holderIndex - 1 + holderImages.length) % holderImages.length;
-  updateHolderImage();
-});
-holderRight.addEventListener("click", ()=>{
-  holderIndex = (holderIndex + 1) % holderImages.length;
-  updateHolderImage();
-});
-
-// ---------- Carrusel Cargador ----------
-const chargerImages = [
+const cargadorImages = [
   "Imagen_20260312_215132.jpg",
   "Imagen_20260312_215147.jpg",
   "Imagen_20260312_215207.jpg",
@@ -339,67 +289,75 @@ const chargerImages = [
   "Imagen_20260312_215045.jpg",
   "Imagen_20260312_215108.jpg"
 ];
-let chargerIndex = 0;
-const chargerMain = document.getElementById("charger-main");
-const chargerLeft = document.getElementById("charger-left");
-const chargerRight = document.getElementById("charger-right");
-const chargerIndicator = document.getElementById("charger-indicator");
 
-function updateChargerImage(){
-  chargerMain.style.opacity = 0;
-  setTimeout(()=>{
-    chargerMain.src = chargerImages[chargerIndex];
-    chargerIndicator.textContent = `${chargerIndex+1}/${chargerImages.length}`;
-    chargerMain.style.opacity = 1;
-  },200);
+// Función genérica para carrusel
+function setupCarousel(images, mainId, leftId, rightId, indicatorId){
+  let index = 0;
+  const mainImg = document.getElementById(mainId);
+  const leftArrow = document.getElementById(leftId);
+  const rightArrow = document.getElementById(rightId);
+  const indicator = document.getElementById(indicatorId);
+
+  function update(){
+    mainImg.src = images[index];
+    indicator.textContent = `${index+1}/${images.length}`;
+  }
+
+  leftArrow.addEventListener("click", ()=>{
+    index = (index -1 + images.length) % images.length;
+    update();
+  });
+
+  rightArrow.addEventListener("click", ()=>{
+    index = (index +1) % images.length;
+    update();
+  });
+
+  mainImg.addEventListener("click", ()=>{
+    modal.style.display = "flex";
+    modalImg.src = mainImg.src;
+    currentModalImages = images;
+    currentModalIndex = index;
+    updateModalIndicator();
+  });
+
+  update();
 }
 
-chargerLeft.addEventListener("click", ()=>{
-  chargerIndex = (chargerIndex - 1 + chargerImages.length) % chargerImages.length;
-  updateChargerImage();
-});
-chargerRight.addEventListener("click", ()=>{
-  chargerIndex = (chargerIndex + 1) % chargerImages.length;
-  updateChargerImage();
-});
-
-// ---------- Modal General ----------
+// === Modal ===
 const modal = document.getElementById("modal");
 const modalImg = document.getElementById("modal-img");
 const cerrar = document.getElementById("cerrar");
 const modalLeft = document.getElementById("modal-left");
 const modalRight = document.getElementById("modal-right");
 
-let modalArray = []; // se asigna al producto clickeado
-let modalIndex = 0;
-
-function openModal(src, imagesArray, index){
-  modal.style.display = "flex";
-  modalImg.src = src;
-  modalArray = imagesArray;
-  modalIndex = index;
-}
+let currentModalImages = [];
+let currentModalIndex = 0;
 
 cerrar.addEventListener("click", ()=> modal.style.display = "none");
 modal.addEventListener("click", (e)=> { if(e.target === modal) modal.style.display="none"; });
 
-// Modal flechas
+function updateModalIndicator(){
+  modalImg.src = currentModalImages[currentModalIndex];
+}
+
 modalLeft.addEventListener("click", (e)=>{
   e.stopPropagation();
-  modalIndex = (modalIndex - 1 + modalArray.length) % modalArray.length;
-  modalImg.src = modalArray[modalIndex];
+  currentModalIndex = (currentModalIndex -1 + currentModalImages.length) % currentModalImages.length;
+  updateModalIndicator();
 });
+
 modalRight.addEventListener("click", (e)=>{
   e.stopPropagation();
-  modalIndex = (modalIndex + 1) % modalArray.length;
-  modalImg.src = modalArray[modalIndex];
+  currentModalIndex = (currentModalIndex +1) % currentModalImages.length;
+  updateModalIndicator();
 });
 
-// Abrir modal al hacer click en cualquier imagen principal
-ledMain.addEventListener("click", ()=> openModal(ledMain.src, ledImages, currentIndex));
-holderMain.addEventListener("click", ()=> openModal(holderMain.src, holderImages, holderIndex));
-chargerMain.addEventListener("click", ()=> openModal(chargerMain.src, chargerImages, chargerIndex));
-
+// === Inicializamos carruseles ===
+setupCarousel(ledImages, "led-main", "led-left", "led-right", "led-indicator");
+setupCarousel(soporteImages, "soporte-main", "soporte-left", "soporte-right", "soporte-indicator");
+setupCarousel(cargadorImages, "cargador-main", "cargador-left", "cargador-right", "cargador-indicator");
 </script>
+
 </body>
   </html>
