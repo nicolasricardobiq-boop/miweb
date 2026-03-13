@@ -89,18 +89,6 @@ header p{
   margin:5px 0;
 }
 
-/* Todas las imágenes con zoom al pasar o tocar */
-.card img, .led-main{
-  width:100%;
-  border-radius:8px;
-  cursor:pointer;
-  transition: transform 0.3s ease;
-}
-
-.card img:hover, .led-main:hover{
-  transform: scale(1.1);
-}
-
 .btn{
   background:#25D366;
   border:none;
@@ -122,12 +110,25 @@ footer{
   color:#888;
 }
 
-/* Carrusel imagen principal LEDs y soportes */
-.carousel-card {
+/* Carrusel imagen principal */
+.led-card {
   position: relative;
   width: 100%;
-  max-width:240px;
-  margin:auto;
+  max-width: 240px;
+  margin: auto;
+}
+
+.led-main {
+  width: 100%;
+  border-radius: 8px;
+  cursor:pointer;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Zoom al pasar mouse/touch */
+.led-main:hover{
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
 }
 
 .arrow {
@@ -194,11 +195,11 @@ footer{
 <p class="description">Kit de luces LED para el interior de tu vehículo. Fácil instalación, 5 colores disponibles, compatible con cualquier auto. Ideal para iluminación ambiental y personalización del tablero y cabina.</p>
 <p class="precio">$20.000</p>
 
-<div class="carousel-card" data-product="led">
+<div class="led-card">
   <span class="arrow arrow-left">&#10094;</span>
-  <img class="led-main" src="IMG_20260312_180252.jpg" alt="Luces LED">
+  <img id="led-main" class="led-main" src="IMG_20260312_180252.jpg" alt="Luces LED">
   <span class="arrow arrow-right">&#10095;</span>
-  <div class="image-indicator">1/5</div>
+  <div class="image-indicator" id="image-indicator">1/5</div>
 </div>
 
 <a href="https://wa.me/541130461461?text=Hola%20quiero%20comprar%20las%20luces%20LED%20para%20auto">
@@ -206,19 +207,12 @@ footer{
 </a>
 </div>
 
-<!-- Producto 2: Soporte de Celular con carrusel -->
+<!-- Producto 2 -->
 <div class="card">
+<img src="https://m.media-amazon.com/images/I/61nQKQ8C5AL._AC_SL1500_.jpg" alt="Soporte Celular Auto">
 <h3>Soporte de Celular 360° para Autos</h3>
 <p class="description">Mantén tu celular seguro y accesible mientras conduces. Compatible con todos los tamaños de teléfonos y rotación 360° para mejor visibilidad.</p>
 <p class="precio">$32.000</p>
-
-<div class="carousel-card" data-product="soporte">
-  <span class="arrow arrow-left">&#10094;</span>
-  <img class="led-main" src="Imagen_20260312_183551.jpg" alt="Soporte Celular">
-  <span class="arrow arrow-right">&#10095;</span>
-  <div class="image-indicator">1/9</div>
-</div>
-
 <a href="https://wa.me/541130461461?text=Hola%20quiero%20comprar%20el%20soporte%20de%20celular%20para%20auto">
 <button class="btn">Comprar por WhatsApp</button>
 </a>
@@ -259,7 +253,7 @@ footer{
 © 2026 Accesorios para Autos
 </footer>
 
-<!-- Modal general -->
+<!-- Modal para ver fotos grandes -->
 <div id="modal" style="display:none;position:fixed;z-index:1000;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);justify-content:center;align-items:center;">
   <span id="cerrar" style="position:absolute;top:20px;right:30px;font-size:40px;cursor:pointer;color:white;">&times;</span>
   <img id="modal-img" src="" style="max-width:90%;max-height:90%;border-radius:10px;">
@@ -268,77 +262,71 @@ footer{
 </div>
 
 <script>
-// Arrays de imágenes por producto
-const products = {
-  led: ["IMG_20260312_180252.jpg","IMG_20260312_180210.jpg","IMG_20260312_180309.jpg","IMG_20260312_180227.jpg","IMG_20260312_180157.jpg"],
-  soporte: ["Imagen_20260312_183551.jpg","Imagen_20260312_183604.jpg","Imagen_20260312_183617.jpg","Imagen_20260312_183630.jpg","Imagen_20260312_183644.jpg","Imagen_20260312_183657.jpg","Imagen_20260312_183708.jpg","Imagen_20260312_183722.jpg","Imagen_20260312_183749.jpg"]
-};
+// Imagenes LED
+const ledImages = [
+  "IMG_20260312_180252.jpg",
+  "IMG_20260312_180210.jpg",
+  "IMG_20260312_180309.jpg",
+  "IMG_20260312_180227.jpg",
+  "IMG_20260312_180157.jpg"
+];
 
-const carousels = document.querySelectorAll(".carousel-card");
+let currentIndex = 0;
 
-carousels.forEach(carousel=>{
-  let prodType = carousel.dataset.product;
-  let mainImg = carousel.querySelector(".led-main");
-  let left = carousel.querySelector(".arrow-left");
-  let right = carousel.querySelector(".arrow-right");
-  let indicator = carousel.querySelector(".image-indicator");
-  let currentIndex = 0;
+const ledMain = document.getElementById("led-main");
+const leftArrow = document.querySelector(".arrow-left");
+const rightArrow = document.querySelector(".arrow-right");
+const indicator = document.getElementById("image-indicator");
 
-  function updateImage(){
-    mainImg.style.opacity=0;
-    setTimeout(()=>{
-      mainImg.src = products[prodType][currentIndex];
-      indicator.textContent = `${currentIndex+1}/${products[prodType].length}`;
-      mainImg.style.opacity=1;
-    },200);
-  }
+// Función para actualizar imagen con transición suave
+function updateLedImage(){
+  ledMain.style.opacity = 0;
+  setTimeout(()=>{
+    ledMain.src = ledImages[currentIndex];
+    indicator.textContent = `${currentIndex+1}/${ledImages.length}`;
+    ledMain.style.opacity = 1;
+  },200);
+}
 
-  left.addEventListener("click",()=> {
-    currentIndex = (currentIndex -1 + products[prodType].length)%products[prodType].length;
-    updateImage();
-  });
-
-  right.addEventListener("click",()=> {
-    currentIndex = (currentIndex +1)%products[prodType].length;
-    updateImage();
-  });
-
-  // Modal individual
-  mainImg.addEventListener("click", ()=>{
-    modal.style.display="flex";
-    modalImg.src = mainImg.src;
-    modal.dataset.product = prodType;
-    modal.dataset.index = currentIndex;
-  });
+// Cambiar imagen principal con flechas
+leftArrow.addEventListener("click", ()=>{
+  currentIndex = (currentIndex - 1 + ledImages.length) % ledImages.length;
+  updateLedImage();
 });
 
-// Modal general
+rightArrow.addEventListener("click", ()=>{
+  currentIndex = (currentIndex + 1) % ledImages.length;
+  updateLedImage();
+});
+
+// Modal
 const modal = document.getElementById("modal");
 const modalImg = document.getElementById("modal-img");
 const cerrar = document.getElementById("cerrar");
 const modalLeft = document.getElementById("modal-left");
 const modalRight = document.getElementById("modal-right");
 
-cerrar.addEventListener("click", ()=> modal.style.display="none");
-modal.addEventListener("click",(e)=> { if(e.target===modal) modal.style.display="none"; });
-
-// Modal flechas
-modalLeft.addEventListener("click",(e)=>{
-  e.stopPropagation();
-  let prodType = modal.dataset.product;
-  let index = parseInt(modal.dataset.index);
-  index = (index-1 + products[prodType].length)%products[prodType].length;
-  modalImg.src = products[prodType][index];
-  modal.dataset.index=index;
+ledMain.addEventListener("click", ()=>{
+  modal.style.display = "flex";
+  modalImg.src = ledMain.src;
 });
 
-modalRight.addEventListener("click",(e)=>{
+cerrar.addEventListener("click", ()=> modal.style.display = "none");
+modal.addEventListener("click", (e)=> { if(e.target === modal) modal.style.display="none"; });
+
+// Modal flechas
+modalLeft.addEventListener("click", (e)=>{
   e.stopPropagation();
-  let prodType = modal.dataset.product;
-  let index = parseInt(modal.dataset.index);
-  index = (index+1)%products[prodType].length;
-  modalImg.src = products[prodType][index];
-  modal.dataset.index=index;
+  currentIndex = (currentIndex - 1 + ledImages.length) % ledImages.length;
+  modalImg.src = ledImages[currentIndex];
+  updateLedImage();
+});
+
+modalRight.addEventListener("click", (e)=>{
+  e.stopPropagation();
+  currentIndex = (currentIndex + 1) % ledImages.length;
+  modalImg.src = ledImages[currentIndex];
+  updateLedImage();
 });
 </script>
 
